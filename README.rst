@@ -17,8 +17,13 @@ Cette application consistera en un shop où il sera possible d'acheter et de tro
 
 Projet en cours!
 
-
+Wiki_
+----
 
 .. [#pc] <pedro.costa@he-arc.ch>
 .. [#jdc] <johnny.dacosta@he-arc.ch>
 .. [#mp] <mael.pedretti@he-arc.ch>
+
+.. Bibliographie
+
+.. _Wiki: https://github.com/73VW/SimpleTroc/wiki
