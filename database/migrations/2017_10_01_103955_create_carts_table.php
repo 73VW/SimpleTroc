@@ -24,7 +24,6 @@ class CreateCartsTable extends Migration
             $table->integer('product_id');
             $table->timestamps();
             $table->primary(['cart_id', 'product_id']);
-
         });
     }
 
