@@ -2,8 +2,6 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
 /**
  * Product Model.
  */
@@ -25,5 +23,13 @@ class Product extends Model
     public function carts()
     {
         return $this->belongsToMany(Cart::class);
+    }
+
+    /**
+     * Any product may have many categories.
+     * @return an array of categories object
+     */
+    public function categories(){
+        return $this->belongsToMany(Category::class);
     }
 }
