@@ -38,7 +38,8 @@ class Product extends Model
      * A product may have many pictures.
      * @return an array of pictures object
      */
-    public function pictures(){
+    public function pictures()
+    {
         return $this->hasMany(Picture::class);
     }
 }
