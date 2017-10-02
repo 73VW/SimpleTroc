@@ -32,4 +32,12 @@ class Product extends Model
     public function categories(){
         return $this->belongsToMany(Category::class);
     }
+
+    /**
+     * A product may have many pictures.
+     * @return an array of pictures object
+     */
+    public function pictures(){
+        return $this->hasMany(Picture::class);
+    }
 }
