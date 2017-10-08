@@ -14,6 +14,8 @@ Introduction
 Essai du module Cashier de Laravel.
 
 Cette application consistera en un shop où il sera possible d'acheter et de troquer divers objets.
+Pour ce faire nous utiliseron le package officiel Cashier que propose Laravel pour gérer les différentes
+informations et les différentes transaction de la carte bancaire.
 
 Projet en cours!
 
