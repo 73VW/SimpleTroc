@@ -20,9 +20,11 @@ Auth::routes();
 Route::prefix('/profile')->group(function () {
 
 	//TODO : do the CRUD User
-    Route::get('edit', 'ProfileController@edit');
-    Route::put('', 'ProfileController@update');
-    Route::delete('', 'ProfileController@delete');
+	Route::get('', 'ProfilesController@index');
+	Route::put('', 'ProfilesController@update');
+    Route::delete('', 'ProfilseController@delete');
+    Route::get('edit', 'ProfilesController@edit');
+
 
     //TODO: do the CRUD products
     Route::prefix('products')->group(function () {
@@ -38,7 +40,7 @@ Route::prefix('/profile')->group(function () {
 
 Route::prefix('checkout')->group(function () {
 		//TODO : make some test
-        Route::get('', 'CheckoutController@index');
-		Route::post('', 'CheckoutController@charge');
+        Route::get('', 'CheckoutsController@index');
+		Route::post('', 'CheckoutsController@charge');
 });
 
