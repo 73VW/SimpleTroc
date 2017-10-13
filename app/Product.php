@@ -42,4 +42,14 @@ class Product extends Model
     {
         return $this->hasMany(Picture::class);
     }
+
+    /**
+     * save picture
+     * @param  [type] $path [description]
+     * @return [type]       [description]
+     */
+    public function storeImage(Picture $picture)
+    {
+        $this->pictures()->save($picture);
+    }
 }

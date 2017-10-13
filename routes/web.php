@@ -19,20 +19,22 @@ Auth::routes();
 
 Route::prefix('/profile')->group(function () {
 
-	//TODO : do the CRUD User
+	//TODO : do the Delete User
 	Route::get('', 'ProfilesController@index');
+    Route::get('edit', 'ProfilesController@edit');
 	Route::put('', 'ProfilesController@update');
     Route::delete('', 'ProfilseController@delete');
-    Route::get('edit', 'ProfilesController@edit');
+
 
     //TODO: do the CRUD products
     Route::prefix('products')->group(function () {
-    	Route::get('', 'ProfileController@index');
-    	Route::get('edit/{product}', 'ProductsController@edit');
+    	Route::get('', 'ProductsController@index');
+        Route::get('create', 'ProductsController@create');
+        Route::get('edit/{product}', 'ProductsController@edit');
+        Route::post('', 'ProductsController@store');
     	Route::put('', 'ProductsController@update');
     	Route::delete('', 'ProductsController@delete');
 	});
-
 
 });
 

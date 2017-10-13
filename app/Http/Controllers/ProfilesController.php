@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateUser;
 
 class ProfilesController extends Controller
 {
-
+    /**
+     * Only user with access can have a profile
+     */
 	function __construct()
 	{
-		$this->middleware('auth'); # only user connected can access
+		$this->middleware('auth');
 	}
 
 	/**
@@ -43,10 +44,15 @@ class ProfilesController extends Controller
         $input = $request->validated(); //prevent for adding malicious input...
 
         // update the user
-        Auth::user()->update($input);
+        auth()->user()->update($input);
 
-        // return back
-        return view('profiles.edit');
+        /**
+        * confirm the succes to the user
+        */
+        session()->flash("message", " Profile update with success !");
+
+        // return to the profile
+        return view('profiles.index');
     }
 
     /**

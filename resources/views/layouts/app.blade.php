@@ -27,16 +27,15 @@
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item dropdown mr-md-1">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                   <a class="dropdown-item" href="#">My products</a>
-                  <a class="dropdown-item" href="#">My profile</a>
+                  <a class="dropdown-item" href="/profile/edit">Update profile</a>
+                  <a class="dropdown-item" href="/profile/products">See product</a>
+                  <a class="dropdown-item" href="/profile/products/create">Add product</a>
                 </div>
             </li>
             <li>

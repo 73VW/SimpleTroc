@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Auth;
 
 class UpdateUser extends FormRequest
 {
@@ -34,7 +33,7 @@ class UpdateUser extends FormRequest
          * Email have to be unique.
          * we check if new email is unique
          */
-        if(request('email') != Auth::user()->email){
+        if(request('email') != auth()->user()->email){
             $rules['email'] = 'required|string|email|max:255|unique:users';
         }
         return $rules;
