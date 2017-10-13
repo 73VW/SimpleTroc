@@ -25,6 +25,7 @@
                             </div>
                         </div>
 
+                        {{-- EMAIL --}}
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
@@ -38,7 +39,59 @@
                                 @endif
                             </div>
                         </div>
+                        {{-- END EMAIL --}}
 
+                        {{-- faire une liste déroulante des pays --}}
+                        {{-- CITY --}}
+                      <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
+                            <label for="city" class="col-md-4 control-label">City</label>
+
+                            <div class="col-md-6">
+                                <input id="city" type="text" class="form-control" name="city" value="{{ old('city') }}" required>
+
+                                @if ($errors->has('city'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        {{-- END CITY --}}
+
+                        {{-- trouver un moyen de vérifié que l'adresse existe ? --}}
+                        {{-- ADDRESS --}}
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <label for="address" class="col-md-4 control-label">Address</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required>
+
+                                @if ($errors->has('address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        {{-- END ADDRESS --}}
+
+                        {{-- ADDRESS --}}
+                        <div class="form-group{{ $errors->has('npa') ? ' has-error' : '' }}">
+                            <label for="npa" class="col-md-4 control-label">NPA</label>
+
+                            <div class="col-md-6">
+                                <input id="npa" type="number" class="form-control" name="npa" value="{{ old('npa') }}" required>
+
+                                @if ($errors->has('address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        {{-- END ADDRESS --}}
+
+                        {{-- PASSWORD --}}
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -52,7 +105,9 @@
                                 @endif
                             </div>
                         </div>
+                        {{-- END PASSWORD --}}
 
+                        {{-- CONFIRM PASS --}}
                         <div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
@@ -60,7 +115,9 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        {{-- END CONFIRM PASS --}}
 
+                        {{-- SUBMIT --}}
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -68,10 +125,12 @@
                                 </button>
                             </div>
                         </div>
+                        {{-- END SUBMIT --}}
+
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                </div> {{-- END PANEL-BODY --}}
+            </div> {{-- END PANEL-DEFAULT --}}
+        </div> {{-- END COL --}}
+    </div> {{-- END ROW --}}
+</div> {{-- CONTAINER --}}
 @endsection

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
-use App\User;
+use App\Http\Requests\UpdateUser;
 
 class ProfilesController extends Controller
 {
@@ -36,9 +37,16 @@ class ProfilesController extends Controller
      * @param  User   $user
      * @return view
      */
-    public function update(Request $request)
+    public function update(UpdateUser $request)
     {
-    	# TODO : faire l'update + refaire la redirection
+        // get the array valided input
+        $input = $request->validated(); //prevent for adding malicious input...
+
+        // update the user
+        Auth::user()->update($input);
+
+        // return back
+        return view('profiles.edit');
     }
 
     /**
@@ -47,6 +55,6 @@ class ProfilesController extends Controller
      */
     public function delete()
     {
-    	# TODO : faire la suppression + la redirection
+    	# TODO : faire la suppression du compte + la redirection
     }
 }

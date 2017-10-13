@@ -6,7 +6,7 @@ use Cartalyst\Stripe\Stripe;
 use Illuminate\Http\Request;
 
 
-class CheckoutController extends Controller
+class CheckoutsController extends Controller
 {
 	/**
 	 * Show a form that the user have to put is credit cart

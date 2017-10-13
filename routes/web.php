@@ -25,7 +25,6 @@ Route::prefix('/profile')->group(function () {
     Route::delete('', 'ProfilseController@delete');
     Route::get('edit', 'ProfilesController@edit');
 
-
     //TODO: do the CRUD products
     Route::prefix('products')->group(function () {
     	Route::get('', 'ProfileController@index');
