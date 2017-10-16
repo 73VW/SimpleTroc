@@ -10,13 +10,11 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * The attributes that aren't mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -27,8 +25,30 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * A user has many products.
+     * @return array of product object
+     */
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    /**
+     * Save the product to the database.
+     * @param  Product $product
+     */
+    public function storeProduct(Product $product, $paths = null)
+    {
+
+        //save the product user
+        $this->products()->save($product);
+
+        if ($paths) {
+            //store the images associate to the current product
+            for ($i = 0; $i < count($paths); $i++) {
+                $product->storeImage(new Picture(['path' => substr($paths[$i], 7)]));
+            }
+        }
     }
 }

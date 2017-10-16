@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" />
         <!-- Styles -->
         <style>
             html, body {
@@ -80,16 +80,23 @@
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
+                            <a data-fancybox="gallery"
+                                 href="{{ asset('storage/images-products/B0fKY3MuXnxWngCN3rjzurczmQN9LMfgf3KjR6by.png')}}">
+                                 <img src="{{ asset('storage/images-products/B0fKY3MuXnxWngCN3rjzurczmQN9LMfgf3KjR6by.png')}}">
+                             </a>
+
+                            <a data-fancybox="gallery"
+                                 href="{{ asset('storage/images-products/B0fKY3MuXnxWngCN3rjzurczmQN9LMfgf3KjR6by.png')}}">
+                                 <img src="{{ asset('storage/images-products/B0fKY3MuXnxWngCN3rjzurczmQN9LMfgf3KjR6by.png')}}">
+                             </a>
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="/checkout">Checkout</a>
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
     </body>
 </html>
