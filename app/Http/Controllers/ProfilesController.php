@@ -46,9 +46,8 @@ class ProfilesController extends Controller
         // update the user
         auth()->user()->update($input);
 
-        /**
-        * confirm the succes to the user
-        */
+
+        // confirm the succes to the user
         session()->flash("message", " Profile update with success !");
 
         // return to the profile

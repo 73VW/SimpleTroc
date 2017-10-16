@@ -40,13 +40,17 @@ class User extends Authenticatable
      * Save the product to the database
      * @param  Product $product
      */
-    public function storeProduct(Product $product, $path)
+    public function storeProduct(Product $product, $paths=null)
     {
 
         //save the product user
         $this->products()->save($product);
 
-        //store the image associate to the current product
-        $product->storeImage(new Picture(['path' => $path]));
+        if($paths){
+            //store the images associate to the current product
+            for ($i=0; $i < count($paths); $i++) {
+                 $product->storeImage(new Picture(['path' => substr($paths[$i], 7)]));
+            }
+        }
     }
 }

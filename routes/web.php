@@ -23,7 +23,7 @@ Route::prefix('/profile')->group(function () {
 	Route::get('', 'ProfilesController@index');
     Route::get('edit', 'ProfilesController@edit');
 	Route::put('', 'ProfilesController@update');
-    Route::delete('', 'ProfilseController@delete');
+    Route::delete('{user}', 'ProfilseController@destroy');
 
 
     //TODO: do the CRUD products
@@ -32,8 +32,8 @@ Route::prefix('/profile')->group(function () {
         Route::get('create', 'ProductsController@create');
         Route::get('edit/{product}', 'ProductsController@edit');
         Route::post('', 'ProductsController@store');
-    	Route::put('', 'ProductsController@update');
-    	Route::delete('', 'ProductsController@delete');
+    	Route::put('{product}', 'ProductsController@update');
+    	Route::delete('{product}', 'ProductsController@destroy');
 	});
 
 });
