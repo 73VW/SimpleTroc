@@ -2,8 +2,6 @@
 
 namespace App;
 
-use App\Picture;
-use App\Product;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -28,7 +26,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * A user has many products
+     * A user has many products.
      * @return array of product object
      */
     public function products()
@@ -37,19 +35,19 @@ class User extends Authenticatable
     }
 
     /**
-     * Save the product to the database
+     * Save the product to the database.
      * @param  Product $product
      */
-    public function storeProduct(Product $product, $paths=null)
+    public function storeProduct(Product $product, $paths = null)
     {
 
         //save the product user
         $this->products()->save($product);
 
-        if($paths){
+        if ($paths) {
             //store the images associate to the current product
-            for ($i=0; $i < count($paths); $i++) {
-                 $product->storeImage(new Picture(['path' => substr($paths[$i], 7)]));
+            for ($i = 0; $i < count($paths); $i++) {
+                $product->storeImage(new Picture(['path' => substr($paths[$i], 7)]));
             }
         }
     }

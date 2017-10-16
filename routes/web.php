@@ -19,29 +19,25 @@ Auth::routes();
 
 Route::prefix('/profile')->group(function () {
 
-	//TODO : do the Delete User
-	Route::get('', 'ProfilesController@index');
+    //TODO : do the Delete User
+    Route::get('', 'ProfilesController@index');
     Route::get('edit', 'ProfilesController@edit');
-	Route::put('', 'ProfilesController@update');
+    Route::put('', 'ProfilesController@update');
     Route::delete('{user}', 'ProfilseController@destroy');
-
 
     //TODO: do the CRUD products
     Route::prefix('products')->group(function () {
-    	Route::get('', 'ProductsController@index');
+        Route::get('', 'ProductsController@index');
         Route::get('create', 'ProductsController@create');
         Route::get('edit/{product}', 'ProductsController@edit');
         Route::post('', 'ProductsController@store');
-    	Route::put('{product}', 'ProductsController@update');
-    	Route::delete('{product}', 'ProductsController@destroy');
-	});
-
+        Route::put('{product}', 'ProductsController@update');
+        Route::delete('{product}', 'ProductsController@destroy');
+    });
 });
-
 
 Route::prefix('checkout')->group(function () {
-		//TODO : make some test
-        Route::get('', 'CheckoutsController@index');
-		Route::post('', 'CheckoutsController@charge');
+    //TODO : make some test
+    Route::get('', 'CheckoutsController@index');
+    Route::post('', 'CheckoutsController@charge');
 });
-
