@@ -21,6 +21,6 @@ before_script:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r -e "ssh -p 2211" --delete-after --quiet $TRAVIS_BUILD_DIR poweruser@simpletroc.srvz-webapp.he-arc.ch:www/app/SimpleTroc
+  script: rsync -r -e "ssh -p 2211" --delete-after --quiet $TRAVIS_BUILD_DIR poweruser@simpletroc.srvz-webapp.he-arc.ch:www/app/SimpleTroc || echo "Impossible to deploy via ssh"
   on:
     branch: master
