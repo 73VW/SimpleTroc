@@ -29,13 +29,14 @@ class UpdateUser extends FormRequest
             'address' => 'required|string|max:100',
             'npa' => 'required|string|max:100',
         ];
-        /**
+        /*
          * Email have to be unique.
          * we check if new email is unique
          */
-        if(request('email') != auth()->user()->email){
+        if (request('email') != auth()->user()->email) {
             $rules['email'] = 'required|string|email|max:255|unique:users';
         }
+
         return $rules;
     }
 }

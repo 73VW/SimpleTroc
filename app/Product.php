@@ -44,7 +44,7 @@ class Product extends Model
     }
 
     /**
-     * save picture
+     * save picture.
      * @param  [type] $path [description]
      * @return [type]       [description]
      */

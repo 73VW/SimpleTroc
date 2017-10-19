@@ -2,39 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\UpdateUser;
 
 class ProfilesController extends Controller
 {
     /**
-     * Only user with access can have a profile
+     * Only user with access can have a profile.
      */
-	function __construct()
-	{
-		$this->middleware('auth');
-	}
-
-	/**
-	 * Go to the home user
-	 * @return view
-	 */
-    public function index()
+    public function __construct()
     {
-    	return view('profiles.index');
+        $this->middleware('auth');
     }
 
     /**
-     * Go to the edit user page
+     * Go to the home user.
+     * @return view
+     */
+    public function index()
+    {
+        return view('profiles.index');
+    }
+
+    /**
+     * Go to the edit user page.
      * @return view
      */
     public function edit()
     {
-    	return view('profiles.edit');
+        return view('profiles.edit');
     }
 
     /**
-     * update and save the data user
+     * update and save the data user.
      * @param  User   $user
      * @return view
      */
@@ -46,20 +45,19 @@ class ProfilesController extends Controller
         // update the user
         auth()->user()->update($input);
 
-
         // confirm the succes to the user
-        session()->flash("message", " Profile update with success !");
+        session()->flash('message', ' Profile update with success !');
 
         // return to the profile
         return view('profiles.index');
     }
 
     /**
-     * delete the current user
+     * delete the current user.
      * @return [type] [description]
      */
     public function delete()
     {
-    	# TODO : faire la suppression du compte + la redirection
+        // TODO : faire la suppression du compte + la redirection
     }
 }
