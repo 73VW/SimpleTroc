@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductForm;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
@@ -72,10 +73,22 @@ class ProductsController extends Controller
      */
     public function destroy(Product $product)
     {
+
+        /*
+        * Destroy the pictures who is associate to the products in the local driver.
+        */
+       $imgArray = [];
+       foreach ($product->pictures()->get() as $img) {
+            array_push($imgArray, 'public/'.$img->path);
+       }
+
+       Storage::delete($imgArray);
+
         /*
         * delete the product
         */
         Product::destroy($product->id);
+
 
         /*
         * confirm the succes to the user
