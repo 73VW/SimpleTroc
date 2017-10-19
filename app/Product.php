@@ -29,9 +29,9 @@ class Product extends Model
      * Any product may have many categories.
      * @return an array of categories object
      */
-    public function categories()
+    public function categorie()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     /**

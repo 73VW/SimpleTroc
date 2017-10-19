@@ -69,7 +69,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/profile') }}">Profile</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
@@ -80,19 +80,7 @@
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
-                            <a data-fancybox="gallery"
-                                 href="{{ asset('storage/images-products/B0fKY3MuXnxWngCN3rjzurczmQN9LMfgf3KjR6by.png')}}">
-                                 <img src="{{ asset('storage/images-products/B0fKY3MuXnxWngCN3rjzurczmQN9LMfgf3KjR6by.png')}}">
-                             </a>
 
-                            <a data-fancybox="gallery"
-                                 href="{{ asset('storage/images-products/B0fKY3MuXnxWngCN3rjzurczmQN9LMfgf3KjR6by.png')}}">
-                                 <img src="{{ asset('storage/images-products/B0fKY3MuXnxWngCN3rjzurczmQN9LMfgf3KjR6by.png')}}">
-                             </a>
-                </div>
-
-                <div class="links">
-                    <a href="/checkout">Checkout</a>
                 </div>
             </div>
         </div>
