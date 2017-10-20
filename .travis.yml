@@ -7,6 +7,7 @@ before_script:
   - travis_retry composer self-update
   - travis_retry composer update --no-interaction --prefer-source
   - npm install --save-dev
+  - "npm run production"
   - cp .env.example .env
   - php artisan key:generate #shitty but needed for phpunit
 
@@ -24,10 +25,6 @@ deploy:
   on:
     branch: master
   run:
-    - "composer self-update"
-    - "composer install --no-interaction"
-    - "npm install"
-    - "npm run production"
     - "php artisan migrate"
 
 notifications:
