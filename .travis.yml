@@ -2,6 +2,18 @@ language: php
 php:
 - '7.0'
 sudo: false
+
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer update --no-interaction --prefer-source
+  - npm install --save-dev
+  - cp .env.example .env
+  - php artisan key:generate #shitty but needed for phpunit
+
+before_deploy:
+    - "chmod +x configHeroku.php"
+    - "php configHeroku.php"
+
 deploy:
   provider: heroku
   api_key:
@@ -9,3 +21,9 @@ deploy:
   app: simpletroc
   on:
     branch: master
+  run:
+    - "composer self-update"
+    - "composer install --no-interaction"
+    - "php artisan migrate"
+    - "npm install"
+    - "npm run production"
