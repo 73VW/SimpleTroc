@@ -12,5 +12,7 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
+	.copy('node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css', 'public/css/fancybox.css')
+	.copy('node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js', 'public/js/fancybox.js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .sass('resources/assets/sass/master.scss', 'public/css');

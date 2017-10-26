@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/master.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/fancybox.css')}}">
 
     <style>
       body{
@@ -72,5 +73,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/fancybox.js')}}"></script>
 </body>
 </html>

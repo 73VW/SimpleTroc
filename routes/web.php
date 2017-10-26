@@ -25,14 +25,20 @@ Route::prefix('/profile')->group(function () {
     Route::put('', 'ProfilesController@update');
     Route::delete('{user}', 'ProfilseController@destroy');
 
-    //TODO: do the CRUD products
     Route::prefix('products')->group(function () {
         Route::get('', 'ProductsController@index');
         Route::get('create', 'ProductsController@create');
         Route::get('edit/{product}', 'ProductsController@edit');
+        Route::get('edit/image/{product}', 'ProductsController@manageImg');
         Route::post('', 'ProductsController@store');
         Route::put('{product}', 'ProductsController@update');
         Route::delete('{product}', 'ProductsController@destroy');
+    });
+
+    //TODO: the user can manage the picture
+    Route::prefix('pictures')->group(function () {
+        Route::post('{product}', 'PicturesController@store');
+        Route::delete('{picture}', 'PicturesController@destroy');
     });
 });
 
