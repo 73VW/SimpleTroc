@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PictureForm;
+use Storage;
 use App\Picture;
 use App\Product;
-use Storage;
+use App\Http\Requests\PictureForm;
 
 class PicturesController extends Controller
 {
-	/**
+    /**
      * Only user with access can have a profile.
      */
     public function __construct()
@@ -17,29 +17,28 @@ class PicturesController extends Controller
         $this->middleware('auth');
     }
 
-
     /*
     * Destroy the pictures who is associate to the products in the local driver.
     */
-	public function destroy(Picture $picture)
-	{
+    public function destroy(Picture $picture)
+    {
 
         /*
         * delete the picture from the local storage and the DDB
         */
-       Storage::delete('public/'.$picture->path);
-       $picture->delete();
+        Storage::delete('public/'.$picture->path);
+        $picture->delete();
 
         /*
         * confirm the succes to the user
         */
         session()->flash('message', 'Delete picture success !');
 
-       return redirect()->back();
-	}
+        return redirect()->back();
+    }
 
     /**
-     * Store the picture to the associate product
+     * Store the picture to the associate product.
      * @param  Product     $product
      * @param  PictureForm $request
      * @return back to the previous page

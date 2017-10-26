@@ -20,7 +20,7 @@ class CreatePicturesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('pictures', function(Blueprint $table){
+        Schema::table('pictures', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
