@@ -13,10 +13,21 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/master.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/fancybox.css')}}">
+
+    <style>
+      body{
+        background-color: #f3f2f7;
+      }
+
+      .navbar {
+        background-color: #563d7c;
+      }
+    </style>
 </head>
 <body>
     <div id="root">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -29,18 +40,30 @@
           </li>
         </ul>
         <ul class="navbar-nav">
-            <li class="nav-item dropdown mr-md-1">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                  <a class="dropdown-item" href="#">My products</a>
-                  <a class="dropdown-item" href="/profile/edit">Update profile</a>
-                  <a class="dropdown-item" href="/profile/products">See product</a>
-                  <a class="dropdown-item" href="/profile/products/create">Add product</a>
-                </div>
-            </li>
-            <li>
-                <button class="btn btn-default">logout</button>
-            </li>
+            @auth
+              <li class="nav-item dropdown mr-md-1">
+                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">My products</a>
+                    <a class="dropdown-item" href="/profile/edit">Update profile</a>
+                    <a class="dropdown-item" href="/profile/products">See product</a>
+                    <a class="dropdown-item" href="/profile/products/create">Add product</a>
+                  </div>
+              </li>
+              <li>
+                  <a  class="nav-link href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                         Logout
+                  </a>
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                 </form>
+              </li>
+            @else
+                <a class="nav-link href="{{ route('login') }}">Login</a>
+                <a class="nav-link href="{{ route('register') }}">Register</a>
+             @endauth
+
         </ul>
       </div>
     </nav>
@@ -50,5 +73,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/fancybox.js')}}"></script>
 </body>
 </html>

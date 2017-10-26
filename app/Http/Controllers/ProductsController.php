@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductForm;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
@@ -47,6 +48,16 @@ class ProductsController extends Controller
     }
 
     /**
+     * Manage the images to the current product.
+     * @param  Product $product
+     * @return view products.edit_images
+     */
+    public function manageImg(Product $product)
+    {
+        return view('products.edit_images', compact('product'));
+    }
+
+    /**
      * TODO : make the update
      * update the current product.
      * @param  Product $product
@@ -72,6 +83,16 @@ class ProductsController extends Controller
      */
     public function destroy(Product $product)
     {
+        /*
+        * Destroy the pictures who is associate to the products in the local driver.
+        */
+        $imgArray = [];
+        foreach ($product->pictures()->get() as $img) {
+            array_push($imgArray, 'public/'.$img->path);
+        }
+
+        Storage::delete($imgArray);
+
         /*
         * delete the product
         */
