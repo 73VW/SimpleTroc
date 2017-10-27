@@ -15,7 +15,7 @@
       </thead>
       <tbody>
       	@foreach ($products as $product)
-    	<tr>
+    	<tr id="product_{{$product->id}}">
           @if (count($product->pictures()->get()))
           <td class="align-middle">
             <img src="{{ asset('storage/'.$product->pictures()->first()->path)}}" alt="" class="img-fluid" width="200px" height="200px">
@@ -32,8 +32,10 @@
       		<form id="delete-form" action="/profile/products/{{$product->id}}" method="post">
       			{{ csrf_field() }}
       			{{ method_field('delete') }}
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button id="btnDelete" type="submit" class="btn btn-danger">Delete</button>
+
       	  </form>
+          <button id="btnClick" onclick="performDelete('{{$product->id}}')">click</button>
           </td>
         </tr>
       	@endforeach
