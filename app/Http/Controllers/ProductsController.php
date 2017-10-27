@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
-use Illuminate\Http\Request;
+use Request;
 use App\Http\Requests\ProductForm;
 use Illuminate\Support\Facades\Storage;
 
@@ -83,6 +83,7 @@ class ProductsController extends Controller
      */
     public function destroy(Product $product)
     {
+        $product_id = $product->id;
         /*
         * Destroy the pictures who is associate to the products in the local driver.
         */
@@ -104,6 +105,9 @@ class ProductsController extends Controller
         */
         session()->flash('message', 'Delete product success !');
 
+        if(Request::ajax()){
+            return $product_id;
+        }
         return redirect('profile/products');
     }
 
