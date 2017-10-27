@@ -48,7 +48,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * Manage the images to the current product
+     * Manage the images to the current product.
      * @param  Product $product
      * @return view products.edit_images
      */
@@ -87,18 +87,17 @@ class ProductsController extends Controller
         /*
         * Destroy the pictures who is associate to the products in the local driver.
         */
-       $imgArray = [];
-       foreach ($product->pictures()->get() as $img) {
+        $imgArray = [];
+        foreach ($product->pictures()->get() as $img) {
             array_push($imgArray, 'public/'.$img->path);
-       }
+        }
 
-       Storage::delete($imgArray);
+        Storage::delete($imgArray);
 
         /*
         * delete the product
         */
         Product::destroy($product->id);
-
 
         /*
         * confirm the succes to the user
