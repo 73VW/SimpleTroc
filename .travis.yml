@@ -25,7 +25,7 @@ deploy:
   on:
     branch: master
   run:
-    - /app/php/bin/php /app/www/artisan migrate
+    - heroku run php artisan migrate
 
 notifications:
   webhooks:
