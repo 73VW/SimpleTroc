@@ -55,7 +55,7 @@ class PicturesController extends Controller
 
             // store the files in the local drive
             foreach ($files as $file) {
-                array_push($paths, $file->store('public/img/products'));
+                array_push($paths, $file->store('public/img/products', 'dropbox'));
             }
         }
 
