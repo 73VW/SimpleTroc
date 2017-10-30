@@ -18,7 +18,7 @@
     	<tr id="product_{{$product->id}}">
           @if (count($product->pictures()->get()))
           <td class="align-middle">
-            <img src="{{ asset('storage/'.$product->pictures()->first()->path)}}" alt="" class="img-fluid" width="200px" height="200px">
+            <img src="{{$product->pictures()->first()->link()}}" alt="" class="img-fluid" width="200px" height="200px">
           </td>
           @else
             <td class="align-middle">no image</td>

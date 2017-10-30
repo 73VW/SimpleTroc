@@ -41,7 +41,7 @@
 			@foreach ($product->pictures()->get() as $img)
 				<div class="card">
 					<div class="card-body">
-						<img src="{{ asset('storage/'.$img->path)}}" alt="" class="img-fluid" width="500px" height="500px">
+						<img src="{{$img->link()}}" alt="" class="img-fluid" width="500px" height="500px">
 					</div>
 					<div class="card-footer">
 						@if (count($product->pictures()->get()) > 1)

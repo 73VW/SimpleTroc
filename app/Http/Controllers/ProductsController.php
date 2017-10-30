@@ -92,7 +92,7 @@ class ProductsController extends Controller
             array_push($imgArray, 'public/'.$img->path);
         }
 
-        Storage::delete($imgArray);
+        Storage::disk('dropbox')->delete($imgArray);
 
         /*
         * delete the product
@@ -127,7 +127,7 @@ class ProductsController extends Controller
 
             // store the files in the local drive
             foreach ($files as $file) {
-                array_push($paths, $file->store('public/img/products'));
+                array_push($paths, $file->store('public/img/products', 'dropbox'));
             }
         }
 
