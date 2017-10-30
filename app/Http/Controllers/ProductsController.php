@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
 use Request;
+use App\Product;
 use App\Http\Requests\ProductForm;
 use Illuminate\Support\Facades\Storage;
 
@@ -104,9 +104,10 @@ class ProductsController extends Controller
         */
         session()->flash('message', 'Delete product success !');
 
-        if(Request::ajax()){
+        if (Request::ajax()) {
             return $product_id;
         }
+
         return redirect('profile/products');
     }
 
