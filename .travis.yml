@@ -24,8 +24,6 @@ deploy:
   app: simpletroc
   on:
     branch: master
-  run:
-    - heroku run php artisan migrate
 
 notifications:
   webhooks:
