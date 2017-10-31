@@ -1,12 +1,14 @@
 <?php
 
 if ($databaseUrl = getenv('DATABASE_URL')) {
-    $url = parse_url();
+    $url = parse_url($databaseUrl);
 
     $host = $url['host'];
     $username = $url['user'];
     $password = $url['pass'];
     $database = substr($url['path'], 1);
+} else {
+    die('Cannot find env variable');
 }
 
 return [
@@ -64,7 +66,7 @@ return [
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => $host ?? env('DB_HOST', '127.0.0.1'),
-            'port' => isset($host) ? null : env('DB_PORT', '5432'),
+            'port' => env('DB_PORT', '5432'),
             'database' => $database ?? env('DB_DATABASE', 'forge'),
             'username' => $username ?? env('DB_USERNAME', 'forge'),
             'password' => $password ?? env('DB_PASSWORD', ''),
