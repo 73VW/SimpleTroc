@@ -1,4 +1,5 @@
 function performDelete(id){
+	event.preventDefault();
 	swal({
 	  title: 'Are you sure?',
 	  text: "You won't be able to revert this!",
@@ -11,7 +12,8 @@ function performDelete(id){
 	axios.delete('/profile/products/'+id)
 	  .then(function (response) {
 	    console.log(response.data);
-	    $('#product_'+response.data).remove();
+	    alert(id);
+	    $('#product_'+id).remove();
 	    swal(
 		    'Deleted!',
 		    'Your file has been deleted.',

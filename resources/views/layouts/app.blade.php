@@ -69,6 +69,7 @@
       </div>
     </nav>
     <br>
+        @include('layouts.errors')
         @yield('content')
     </div>
 

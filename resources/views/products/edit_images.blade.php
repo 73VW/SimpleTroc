@@ -39,7 +39,7 @@
 
 		<div class="card-columns">
 			@foreach ($product->pictures()->get() as $img)
-				<div class="card">
+				<div id="picture_{{$img->id}}" class="card">
 					<div class="card-body">
 						<img src="{{$img->link()}}" alt="" class="img-fluid" width="500px" height="500px">
 					</div>
@@ -48,7 +48,7 @@
 						<form id="delete-form" action="/profile/pictures/{{$img->id}}" method="post">
 			    			{{ csrf_field() }}
 			    			{{ method_field('delete') }}
-			    			<button class="btn btn-danger" type="submit">delete</button>
+			    			<button class="btn btn-danger" onclick="performDelete({{$img->id}})" type="submit">delete</button>
 			    	  	</form>
 						@endif
 
