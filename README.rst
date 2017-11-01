@@ -3,7 +3,11 @@ SimpleTroc
 
 .. image:: https://styleci.io/repos/105137485/shield?branch=master
     :target: https://styleci.io/repos/105137485
-    :alt: Build Status
+    :alt: Style Ci Build Status
+    
+.. image:: https://travis-ci.org/HE-Arc/SimpleTroc.svg?branch=master
+    :target: https://travis-ci.org/HE-Arc/SimpleTroc
+    :alt: Style Ci Build Status
 
 Par Pedro Costa [#pc]_, Johnny Da Costa [#jdc]_ et Maël Pedretti [#mp]_
 
@@ -11,16 +15,18 @@ Par Pedro Costa [#pc]_, Johnny Da Costa [#jdc]_ et Maël Pedretti [#mp]_
 Introduction
 ------------
 
-Essai du module Cashier de Laravel.
+Essai de shop en ligne avec Laravel.
 
 Cette application consistera en un shop où il sera possible d'acheter et de troquer divers objets.
-Pour ce faire nous utiliseron le package officiel Cashier que propose Laravel pour gérer les différentes
-informations et les différentes transaction de la carte bancaire.
 
 Projet en cours!
 
-Wiki_
-----
+Ce projet est basé sur le déployement continu. Chaque mise à jour fusionnée sur la branch master est pushée sur Heroku.
+
+`Essayez notre appli!
+<https://simpletroc.herokuapp.com/>`_
+
+N'hésitez pas non plus à consulter notre Wiki_
 
 .. [#pc] <pedro.costa@he-arc.ch>
 .. [#jdc] <johnny.dacosta@he-arc.ch>
