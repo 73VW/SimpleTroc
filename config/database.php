@@ -8,7 +8,7 @@ if ($databaseUrl = getenv('DATABASE_URL')) {
     $password = $url['pass'];
     $database = substr($url['path'], 1);
 } else {
-    die('Cannot find env variable');
+   /* echo 'Cannot find env variable';*/
 }
 
 return [
