@@ -16,14 +16,15 @@ class Picture extends Model
         return $this->belongsTo(Product::class);
     }
 
-	/**
-	 * return a temporary link to the image
-	 * @return string
-	 */
+    /**
+     * return a temporary link to the image.
+     * @return string
+     */
     public function link()
     {
         $adapter = \Storage::disk('dropbox')->getAdapter();
         $client = $adapter->getClient();
-         return $client->getTemporaryLink('public/'.$this->path);
+
+        return $client->getTemporaryLink('public/'.$this->path);
     }
 }
