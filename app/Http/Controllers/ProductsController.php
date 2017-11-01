@@ -6,6 +6,7 @@ use Request;
 use App\Product;
 use App\Http\Requests\ProductForm;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\UpdateProductForm;
 
 class ProductsController extends Controller
 {
@@ -58,15 +59,20 @@ class ProductsController extends Controller
     }
 
     /**
-     * TODO : make the update
      * update the current product.
      * @param  Product $product
      * @return redirect
      */
-    public function update(Product $product, ProductForm $request)
+    public function update(Product $product, UpdateProductForm $request)
     {
+        $data = $request->only('name', 'description', 'price', 'isNegotiable');
+
+        if (is_null($request->isNegotiable)) {
+            $data['isNegotiable'] = false;
+        }
         // update the data
-        $product->update($request->validated());
+        $product->fill($data);
+
         $product->save();
 
         // confirm the succes to the user
@@ -104,10 +110,6 @@ class ProductsController extends Controller
         */
         session()->flash('message', 'Delete product success !');
 
-        if (Request::ajax()) {
-            return $product_id;
-        }
-
         return redirect('profile/products');
     }
 
@@ -120,6 +122,8 @@ class ProductsController extends Controller
     {
         $paths = [];
 
+        $data = $request->only('name', 'description', 'price', 'isNegotiable');
+
         // check if any files images has been sended
         if ($request->hasFile('image')) {
             // store the image in local and save the path
@@ -131,11 +135,12 @@ class ProductsController extends Controller
             }
         }
 
+        if (is_null($request->isNegotiable)) {
+            $data['isNegotiable'] = false;
+        }
+
         // save the products
-        auth()->user()->storeProduct(
-            new Product(request(['name', 'price', 'description', 'isNegotiable'])),
-            $paths
-        );
+        auth()->user()->storeProduct(new Product($data), $paths);
 
         // confirm the succes to the user
         session()->flash('message', ' Product created with success !');

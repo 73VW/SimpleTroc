@@ -43,7 +43,7 @@ Route::prefix('/profile')->group(function () {
 });
 
 Route::prefix('checkout')->group(function () {
-    //TODO : make some test
+    //TODO : make the checkout
     Route::get('', 'CheckoutsController@index');
     Route::post('', 'CheckoutsController@charge');
 });

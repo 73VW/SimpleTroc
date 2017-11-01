@@ -33,9 +33,7 @@
       			{{ csrf_field() }}
       			{{ method_field('delete') }}
             <button id="btnDelete" type="submit" class="btn btn-danger">Delete</button>
-
       	  </form>
-          <button id="btnClick" onclick="performDelete('{{$product->id}}')">click</button>
           </td>
         </tr>
       	@endforeach
