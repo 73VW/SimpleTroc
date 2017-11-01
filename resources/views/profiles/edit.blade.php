@@ -11,7 +11,6 @@
             	</div>
             	<div class="card-body">
                 	Formulaire
-                    {{var_dump($errors->all())}}
                     <form method="post" action="/profile">
                          {{ csrf_field() }}
                          {{ method_field('put') }}
@@ -75,4 +74,3 @@
 
 </div>
 @endsection
-
