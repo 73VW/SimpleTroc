@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Request;
 use App\Product;
-use App\Http\Requests\UpdateProductForm;
 use App\Http\Requests\ProductForm;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\UpdateProductForm;
 
 class ProductsController extends Controller
 {
@@ -65,17 +65,15 @@ class ProductsController extends Controller
      */
     public function update(Product $product, UpdateProductForm $request)
     {
-
         $data = $request->only('name', 'description', 'price', 'isNegotiable');
 
-        if(is_null($request->isNegotiable)){
+        if (is_null($request->isNegotiable)) {
             $data['isNegotiable'] = false;
         }
         // update the data
         $product->fill($data);
 
         $product->save();
-
 
         // confirm the succes to the user
         session()->flash('message', ' Product updated with success !');
@@ -137,7 +135,7 @@ class ProductsController extends Controller
             }
         }
 
-        if(is_null($request->isNegotiable)){
+        if (is_null($request->isNegotiable)) {
             $data['isNegotiable'] = false;
         }
 
