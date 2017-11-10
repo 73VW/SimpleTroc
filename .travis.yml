@@ -2,33 +2,29 @@ language: php
 php:
 - '7.0'
 sudo: false
-
 before_script:
-  - travis_retry composer self-update
-  - travis_retry composer update --no-interaction --prefer-source
-  - npm install --save-dev
-  - npm run production
-  - cp .env.example .env
-  - php artisan key:generate #shitty but needed for phpunit
-
+- travis_retry composer self-update
+- travis_retry composer update --no-interaction --prefer-source
+- npm install --save-dev
+- npm run production
+- cp .env.example .env
+- php artisan key:generate
 before_deploy:
-    - rm .env
-    - chmod +x configHeroku.php
-    - php configHeroku.php
-
+- rm .env
+- chmod +x configHeroku.php
+- php configHeroku.php
 deploy:
   skip_cleanup: true
   provider: heroku
   api_key:
-    secure: NpWKQ5stENvdHXkFqno07r7rw1kXWdJGWkzq8CVWNU+mLrSx8iQTx1B/SkX2qrUsNVtcElC1hMypWvz/ZSQNL4ytQ6eXkshqoxg6Pd3l1zGEe2v9YjyhB87fdyv2lWoItnzk0aUYBK8+WOsnn72xluPN3HZK+6u/dPM11VlTTsiCu6e8Nth0kYIuKPrlkWy1Ioz7kKXa+SSUjYc88YMIzlqpRHUHrW/4yyrjLgTHQxWZL3jfOVG4J+eU/PuDPLQwySKW/GaGaqG06fMu6p+sISjTAqi9MnRmPgfSWX/WAnYW2OmhKXEA15PGQzQZP/pbP8a0AZJZCvM9FWvRsJz/GotKYez3JJtYwux+Kfsp4k5ToCC+f9fzWu+xGeSssUrGyC1Um52gWqT+PweUYlx9NkNczR3JOqKVvxdRVf5TE427DMClJQY8TXirtoi+9uwxR7aXx4dPPTZL7WXc7Fu3YFzrvljpSQiX2tNo72d6uFaD9uTvaSbS3nQvI7Teji7a5qEkHKfY/zWm0G2nfcEs6jxayXzMbzDoJ3q6nQaMTR7KWHIykBAsXXxFT0V/Bq6bCDuKfh4Bk9P9nJaTcpvyCMF3bSvBYPmCCH1foTeBwsgm64/qmq8BvLO416fZHoIyU+K6nmftq3tyPuBKUwVKGD92B8B/6vF4tfyBrbXlv/0=
+    secure: JJMhs5k5vcwUybU4e7bWP4nvZTBe3sZZJKnr4IwBo7zPrRWi6OAKMVbcac3v4Cw13mvEHxD8emPrkPU6n5TcGwc95tES4XqfVcq7IIWDsh110g8Aw8z7zzMFWxXwckoG48Av3tTpqNBVNGQ4pr4JDJDDoQuPKTvOhneiACJ5/faufK1SoC5NZvGrQcCkL92NLWwcFmljlQPdxe5A/uQ2oJe6aKkwYAaSZ2yjp7aZjhjVMvh6XesxUlLLU8BAbVlvU6fwBYmemFKRPMtpJtpVfW9XmnrnUHuqdXBiU59XCDwz7b7+iQIcYKvLIIn3gDNQt11nq/oSBqVBEYtfIiTHId9NHUbkWxe6C2PKxKQnHhNxXp06bHFmguLTuRxkSyKNW/IMikz+2dB21icA2IEnZsOkLJ6WrjK85b04DkNEwajLgGDcojhZQPnt2SQV0H7nxM3Zvy3r/LQAEhRAcQmPeuIGdw6KfiJEVE4qG8NM2iACbgt0TDtHzFfJ2bLBtABnYPUV7c9W9HEiOEnJ16Q/CbC3EEj7iwGZtYqHaNdteOKtNa/Tw4Ke46OziCEK38gVFQMPrArFjZWAxgBhWSmyy5/0/Mv28c+vZqacaInrPdcJJGrc9wGV2Yap3zqovsiCR73J0C+if/QBLEGo0bHCBuqBSsUlU2WVRcGDI9GMVC8=
   app: simpletroc
   on:
     branch: master
-
 notifications:
   webhooks:
     urls:
-      - https://webhooks.gitter.im/e/871dd60a0eae29f5bf1f
-    on_success: always  # options: [always|never|change] default: always
-    on_failure: always  # options: [always|never|change] default: always
-    on_start: never     # options: [always|never|change] default: always
+    - https://webhooks.gitter.im/e/871dd60a0eae29f5bf1f
+    on_success: always
+    on_failure: always
+    on_start: never
