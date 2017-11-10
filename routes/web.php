@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/home', 'HomeController@index');
+
 Route::prefix('/profile')->group(function () {
 
     //TODO : do the Delete User

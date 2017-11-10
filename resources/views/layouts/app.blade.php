@@ -13,8 +13,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/master.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/fancybox.css')}}">
+    <link href="{{ asset('css/fancybox.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.1/sweetalert2.min.css">
+
 
     <style>
       body{
@@ -37,7 +38,7 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{ url('/home') }}">Home <span class="sr-only">(current)</span></a>
           </li>
         </ul>
         <ul class="navbar-nav">
@@ -52,7 +53,7 @@
                   </div>
               </li>
               <li>
-                  <a  class="nav-link href="{{ route('logout') }}" onclick="event.preventDefault();
+                  <a  class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                          Logout
                   </a>
@@ -74,7 +75,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>    
     <script src="{{ asset('js/fancybox.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.1/sweetalert2.min.js"></script>
     @yield('scripts');
