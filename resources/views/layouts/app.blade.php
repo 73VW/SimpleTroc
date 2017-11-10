@@ -11,11 +11,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    @yield('css')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/master.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fancybox.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.1/sweetalert2.min.css">
-
 
     <style>
       body{
@@ -70,14 +69,13 @@
       </div>
     </nav>
     <br>
-        @include('layouts.errors')
-        @yield('content')
-    </div>
+
+    @include('layouts.errors')
+    @yield('content')
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>    
-    <script src="{{ asset('js/fancybox.js')}}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.1/sweetalert2.min.js"></script>
-    @yield('scripts');
+    @yield('scripts')
 </body>
 </html>
