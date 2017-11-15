@@ -52,4 +52,6 @@ class Product extends Model
     {
         $this->pictures()->save($picture);
     }
+
+    create_function(args, code)
 }
