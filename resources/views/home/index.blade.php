@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 <style type="text/css">
+
 	.card{
 		margin-right: 5%;
 		margin-bottom: 5%;
@@ -16,6 +17,10 @@
 		height: 90%;
 	}
 
+	#search_bar{
+		margin-left: 10%;
+	}
+
 	#categories{
 		position: absolute;
 		margin-left: 90%;
@@ -28,24 +33,29 @@
 		left:0;
 	}
 
-	.description{
-		height: 15%;
+	.card .description{
+		height: 13%;
 		overflow: hidden;
     	display: -webkit-box;
     	-webkit-line-clamp: 4;
     	-webkit-box-orient: vertical;
 	}
-	
-	.details{
-		position: absolute;
-    	bottom: 0;
-		padding-left : 15%;
-	}
-
 </style>
 
 @section('content')
 <div class="container-fluid">
+	<div class="row">
+		<div id="search_bar" class="col-sm-8">
+			<div class="form-group">
+				<div class="input-group">
+					<input type="text" placeholder="Recherche" class="form-control left-rounded">
+					<div class="input-group-btn">
+                        <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="row">
 		<div id="products" class="list-unstyled row">
 	    	@foreach($products as $product)
@@ -61,14 +71,17 @@
 		       			@endforeach
 		        	</div>
 		            <div class="card-body">
-			            <h4 class="card-title">{{$product->name}}</h4>
-			            <p class="card-text description">{{$product->description}}</p>
+			            <h4 class="row card-title">{{$product->name}}</h4>
+			            <p class="row card-text description">{{$product->description}}</p>
 			            <div class="row details">
-			                <div class="card-text price">
+			                <div class="col-sm-6 card-text price">
 			                	<p class="lead">{{$product->price}} frs</p>
 		                    </div>
-		                    <div class="col-xs-12 col-md-6 bouton">
-			                    <a class="btn btn-success" href="">Add to cart</a>
+		                    <div class="col-sm-2 bouton">
+			                    <a class="btn btn-primary fa fa-cart-plus" aria-hidden="true" href="#"></a>
+			                </div>
+			                <div class="col-sm-2 bouton">
+			                	<a  class="btn btn-success fa fa-money" aria-hidden="true" href="#"></a>
 			                </div>
 			            </div>
 		        	</div>
