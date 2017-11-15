@@ -15,8 +15,8 @@ class CreateBartersTable extends Migration
     {
         Schema::create('barters', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('isClose')->default(False);
-            $table->boolean('isRefuse')->default(False);
+            $table->boolean('isClose')->default(false);
+            $table->boolean('isRefuse')->default(false);
             $table->timestamps();
         });
 
