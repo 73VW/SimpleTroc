@@ -44,7 +44,7 @@ class Product extends Model
     }
 
     /**
-     * A product can be in many barters
+     * A product can be in many barters.
      */
     public function barters()
     {
