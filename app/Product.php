@@ -44,9 +44,17 @@ class Product extends Model
     }
 
     /**
+     * A product can be in many barters
+     */
+    public function barters()
+    {
+        return $this->belongsToMany(Barter::class);
+    }
+
+    /**
      * save picture.
-     * @param  [type] $path [description]
-     * @return [type]       [description]
+     * @param  Picture
+     * @return void
      */
     public function storeImage(Picture $picture)
     {
