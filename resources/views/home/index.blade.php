@@ -42,7 +42,6 @@
 		padding-left : 15%;
 	}
 
-
 </style>
 
 @section('content')
@@ -52,7 +51,15 @@
 	    	@foreach($products as $product)
 	    	<div class="card" style="width: 20rem;">
 		        <div class="thumbnail">
-		        	<img class="card-img-top" src="{{$product->pictures()->first()->link()}}" alt="Card image cap" width="350" height="200">
+		        	<div class="owl-carousel owl-theme">
+		        		@foreach($product->pictures()->get() as $picture)
+		       				<div class="owl-item">
+		   						<div class="item">
+		        					<img class="image card-img-top" src="{{$picture->link()}}" alt="Card image cap" width="350" height="200">
+		        				</div>
+		        			</div>
+		       			@endforeach
+		        	</div>
 		            <div class="card-body">
 			            <h4 class="card-title">{{$product->name}}</h4>
 			            <p class="card-text description">{{$product->description}}</p>
