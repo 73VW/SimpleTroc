@@ -13,13 +13,13 @@ class Product extends Model
      * @var string
      */
     protected $table = 'products';
-    
+
     /**
-     * Define guarded columns
+     * Define guarded columns.
      *
      * @var array
      */
-    protected $guarded = array('id');
+    protected $guarded = ['id'];
 
     /**
      * An user belongs to an user.
