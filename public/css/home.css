@@ -1,3 +1,40 @@
-#products{
-    padding-right: 50%;
+/*.card{
+	margin-right: 5%;
+	margin-bottom: 5%;
+	margin-top: 2%; 
 }
+	
+#products{
+	margin-left: 5%;
+	padding-left: 10px;
+	position: absolute;
+	float: left;
+	width: 90%;
+	height: 90%;
+}
+
+#categories{
+	position: absolute;
+	margin-left: 90%;
+	float: right;
+	widows: 10%;
+	top: 50px;
+   	position:fixed !important;
+	right:0;
+	bottom:0;
+	left:0;
+}
+
+.card .description{
+	height: 15%;
+	overflow: hidden;
+   	display: -webkit-box;
+   	-webkit-line-clamp: 4;
+   	-webkit-box-orient: vertical;
+}
+	
+.card .details{
+	position: absolute;
+   	bottom: 0;
+	padding-left : 15%;
+}*/
