@@ -32,28 +32,20 @@
 <body>
     <div id="root">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">SimpleTroc</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+      <div class="collapse navbar-collapse row" id="navbarsExampleDefault">
+        <ul class="navbar-nav col-md-11">
             <a class="nav-link" href="{{ url('/home') }}">Home <span class="sr-only">(current)</span></a>
-          </li>
+            <a class="nav-link" href="/profile/products">My products</a>
+            <a class="nav-link" href="/profile/products/create">Add product</a>
+            <a class="nav-link" href="/profile/edit">Update profile</a>
         </ul>
-        <ul class="navbar-nav">
+        <ul class="navbar-nav col-md-1">
             @auth
-              <li class="nav-item dropdown mr-md-1">
-                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">My products</a>
-                    <a class="dropdown-item" href="/profile/edit">Update profile</a>
-                    <a class="dropdown-item" href="/profile/products">See product</a>
-                    <a class="dropdown-item" href="/profile/products/create">Add product</a>
-                  </div>
-              </li>
               <li>
                   <a  class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -80,6 +72,8 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.1/sweetalert2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery-cookie-master/src/jquery.cookie.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
     @yield('scripts')
 </body>
