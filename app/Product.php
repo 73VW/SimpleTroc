@@ -8,6 +8,20 @@ namespace App;
 class Product extends Model
 {
     /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'products';
+
+    /**
+     * Define guarded columns.
+     *
+     * @var array
+     */
+    protected $guarded = ['id'];
+
+    /**
      * An user belongs to an user.
      * @return an object user
      */
