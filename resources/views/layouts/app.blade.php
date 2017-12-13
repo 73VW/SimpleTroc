@@ -25,7 +25,7 @@
       }
 
       .navbar {
-        background-color: #563d7c;
+        background-color: #22427C;
       }
     </style>
 </head>
@@ -56,8 +56,8 @@
                  </form>
               </li>
             @else
-                <a class="nav-link href="{{ route('login') }}">Login</a>
-                <a class="nav-link href="{{ route('register') }}">Register</a>
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                <a class="nav-link" href="{{ route('register') }}">Register</a>
              @endauth
 
         </ul>
@@ -73,7 +73,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.1/sweetalert2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="{{ asset('js/jquery-cookie-master/src/jquery.cookie.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
     @yield('scripts')
 </body>
