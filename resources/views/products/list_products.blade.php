@@ -1,4 +1,4 @@
-<div class="card" style="margin-bottom:10px; background-color: #563d7c; color:white">
+<div class="card" style="margin-bottom:10px; background-color: #22427C; color:white">
   <div class="body"><h1 class="display-4 text-center">List of your products</h1></div>
 </div>
 <div class="card">

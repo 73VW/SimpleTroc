@@ -2,6 +2,9 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/master.css": "/css/master.css",
+    "/js/home.js": "/js/home.js",
     "/css/fancybox.css": "/css/fancybox.css",
-    "/js/fancybox.js": "/js/fancybox.js"
+    "/js/fancybox.js": "/js/fancybox.js",
+    "/css/home.css": "/css/home.css",
+    "/css/font-awesome.min.css": "/css/font-awesome.min.css"
 }
