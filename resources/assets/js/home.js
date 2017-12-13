@@ -1,42 +1,3 @@
-function hoverButton(element){
-	$(element).tooltip('show');
-}
-
-// function getData(page){
-//     $.ajax({
-// 		type: "GET",
-// 		url: '?page='+page,
-// 		success: function(data, textStatus){
-// 		    if (data.redirect) {
-// 		        // data.redirect contains the string URL to redirect to
-// 		        window.location.href = data.redirect;
-// 		    }else {
-// 		        // data.form contains the HTML for the replacement form
-// 		        $("body").empty().html(data);
-// 		    }
-// 		},
-// 		error: function(jqXHR, exception) {
-// 	        var msg = '';
-// 	        if (jqXHR.status === 0) {
-// 	            msg = 'Not connect.\n Verify Network.';
-// 	        } else if (jqXHR.status == 404) {
-// 	            msg = 'Requested page not found. [404]';
-// 	        } else if (jqXHR.status == 500) {
-// 	            msg = 'Internal Server Error [500].';
-// 	        } else if (exception === 'parsererror') {
-// 	            msg = 'Requested JSON parse failed.';
-// 	        } else if (exception === 'timeout') {
-// 	            msg = 'Time out error.';
-// 	        } else if (exception === 'abort') {
-// 	            msg = 'Ajax request aborted.';
-// 	        } else {
-// 	            msg = 'Uncaught Error.\n' + jqXHR.responseText;
-// 	        }
-// 	        alert(msg);
-// 	    }
-// 	});
-// }
-
 list = true;
 
 $(document).ready(function() {
@@ -104,17 +65,6 @@ $(document).ready(function() {
 	    	$.cookie("products_view","list");
     	}
     });
-
-    // $(document).on('click', '.pagination a',function(event)
-    // {
-    //     $('li').removeClass('active');
-    //     $(this).parent('li').addClass('active');
-    //     event.preventDefault();
-
-    //     var page=$(this).attr('href').split('page=')[1];
-
-    //     getData(page);
-    // });
 
     if($.cookie("products_view") == "list"){
     	list = true;
