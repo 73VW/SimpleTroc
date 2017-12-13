@@ -34,6 +34,28 @@ class User extends Authenticatable
         return $this->hasMany(Product::class);
     }
 
+    public function barters()
+    {
+        return $this->hasMany(Barter::class);
+    }
+
+    /**
+     * User can have many commnents
+     * @return a collection of Comment
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
+     * User can have many talks
+     * @return a collection of Talk
+     */
+    public function talks(){
+        return $this->belongsToMany(Talk::class);
+    }
+
     /**
      * Save the product to the database.
      * @param  Product $product
@@ -50,5 +72,18 @@ class User extends Authenticatable
                 $product->storeImage(new Picture(['path' => substr($paths[$i], 7)]));
             }
         }
+    }
+
+    /**
+     * current user create new barter
+     */
+    public function addBarter()
+    {
+        return $this->barters()->create();
+    }
+
+    public function addComment($request)
+    {
+        $this->comments()->create($request);
     }
 }

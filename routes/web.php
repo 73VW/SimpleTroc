@@ -17,7 +17,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index');
+
+
+
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/barters', 'BarterController@index');
+Route::get('/barters/delete/{barter}', 'BarterController@refuseDeal');
+Route::get('/barters/close/{barter}', 'BarterController@closeDeal');
+Route::get('/barters/abort/{barter}', 'BarterController@abortDeal');
+Route::get('/barters/accept/{barter}', 'BarterController@acceptDeal');
+
+Route::get('/talks/show/{talk}', 'TalkController@show');
+Route::post('/comments', 'CommentController@store');
 
 Route::prefix('/profile')->group(function () {
 

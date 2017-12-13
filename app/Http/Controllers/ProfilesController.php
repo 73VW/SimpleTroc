@@ -20,7 +20,11 @@ class ProfilesController extends Controller
      */
     public function index()
     {
-        return view('profiles.index');
+        $productHasBarters = \App\Product::with('barters')->has('barters', '>', 0)->where('user_id', auth()->user()->id)->get();
+        $barters = auth()->user()->barters()->get();
+        $talks = auth()->user()->talks()->get();
+        return view('profiles.index', compact('productHasBarters', 'barters', 'talks'));
+
     }
 
     /**

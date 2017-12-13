@@ -1,6 +1,9 @@
 <?php
 
 namespace App;
+use League\Flysystem\Filesystem;
+use Spatie\Dropbox\Client;
+use Spatie\FlysystemDropbox\DropboxAdapter;
 
 /**
  * Picture model.
@@ -16,6 +19,7 @@ class Picture extends Model
         return $this->belongsTo(Product::class);
     }
 
+
     /**
      * return a temporary link to the image.
      * @return string
@@ -23,8 +27,7 @@ class Picture extends Model
     public function link()
     {
         $adapter = \Storage::disk('dropbox')->getAdapter();
-        $client = $adapter->getClient();
 
-        return $client->getTemporaryLink('public/'.$this->path);
+        return $adapter->getTemporaryLink('public/'.$this->path);
     }
 }

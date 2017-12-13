@@ -1,16 +1,16 @@
 @extends('layouts.app')
 @section('content')
 	<div class="container">
-			<h1>product.create</h1>
+			<h1>Create a new Product</h1>
 			<div class="card">
-				<div class="card-header">Create new products</div>
+				<div class="card-header">New product form</div>
 				<div class="card-body">
 					<form method="post" action="/profile/products"  enctype="multipart/form-data">
 						{{ csrf_field() }}
 
 						<div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
 							<input type="text"
-									name="name" placeholder="name of product"
+									name="name" placeholder="Name of product"
 									class="form-control" value="{{old('name')}}">
 
 							    @if ($errors->has('name'))
@@ -23,7 +23,7 @@
 
 						<div class="form-group {{ $errors->has('price') ? ' has-error' : '' }}">
 							<input type="number"
-									name="price" placeholder="price of product"
+									name="price" placeholder="Price of product"
 									class="form-control	value="{{old('price')}}">
 
 								@if ($errors->has('price'))
@@ -55,9 +55,12 @@
 						</div>
 
 						<div class="form-group">
-							<input type="file" name="image[]"  multiple="multiple" class="form-control-file">
-
+							<label class="custom-file">
+								<input type="file" name="image[]"  multiple="multiple" class="custom-file-input bouton" id="file2">
+								<span class="custom-file-control" id="lbl"></span>
+							</label>
 						</div>
+
 						<button class="btn btn-primary">Store product</button>
 					</form> {{-- END FORM --}}
 				</div> {{-- END CARD-BODY --}}

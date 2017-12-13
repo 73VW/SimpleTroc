@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-
 @section('content')
 <?php
 Carbon\Carbon::setLocale("fr");
 $i = 0;
 ?>
 <div class="container-fluid" id="main">
+
     @include('layouts.sessions-flash')
     <div class="row" style="padding-left: 3%;">
         <div class="col-md-8" id="search_bar" >
@@ -18,9 +18,9 @@ $i = 0;
             </div>
         </div>
         <div class="col-md-2" style="padding-top: 2px;">
-            <div class="col-md-12 bouton">
-                <bouton id="grid" class="btn btn-outline-secondary active fa fa-th col-md-4" aria-hidden="true" href="#"></bouton>
-                <bouton id="list" class="btn btn-outline-secondary fa fa-list col-md-4" aria-hidden="true" href="#"></bouton>
+            <div class="col-md-12 boutons">
+                <button id="grid" class="btn btn-outline-secondary active fa fa-th col-md-4" aria-hidden="true" href="#"></button>
+                <button id="list" class="btn btn-outline-secondary fa fa-list col-md-4" aria-hidden="true" href="#"></button>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@ $i = 0;
                 <div class="card-body">
                     <div class="row head">
                         <h4 class="card-title col-sm-8" id="pname{{$i}}">{{$product->name}}</h4>
-                        <button class="btn btn-outline-secondary fa fa-user-circle-o col-sm-3" id="ubtn{{$i}}" type="button" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="{{$product->user()->first()->name}}" onmouseover="hoverButton(this);"> </button>
+                        <button class="btn btn-outline-secondary fa fa-user-circle-o col-sm-3" id="ubtn{{$i}}" type="button" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="{{$product->user()->first()->name}}" onmouseover="$(this).tooltip('show');"> </button>
                     </div>
                     <div class="row description" id="desc">
                         <p class="card-text">{{$product->description}}</p>
@@ -49,11 +49,11 @@ $i = 0;
                         <div class="col-md-7 card-text price" id="pPrice{{$i}}">
                             <p class="lead">{{$product->price}} frs</p>
                         </div>
-                        <div class="col-md-5 bouton" id="btn{{$i}}">
+                        <div class="col-md-5 boutons" id="btn{{$i++}}">
                             <form action="profile/barter/create" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="product_id" value="{{$product->id}}"><br>
-                                <input class="btn btn-primary fa fa-exchange" type="submit" aria-hidden="true" value="&#xf0ec;">
+                                <input class="btn btn-primary fa fa-exchange bouton" type="submit" aria-hidden="true" value="&#xf0ec;">
                             </form>
                             <a  class="btn btn-success fa fa-money" aria-hidden="true" href="#"></a>
                         </div>
@@ -69,12 +69,12 @@ $i = 0;
             {{$products->links()}}
         </div>
     </div>
-    <div id="categories" style="background-color: #22427C;">
-        <ul class="navbar-nav" id="categories_list">
-            @foreach(\App\Category::all() as $category)
-            <a class="nav-link" href="#">{{$category->name}}</a>
-            @endforeach
-        </ul>
+	<div id="categories" style="background-color: #22427C;">
+    	<ul class="navbar-nav" id="categories_list">		
+	    	@foreach(\App\Category::all() as $category)
+				<a class="nav-link" href="#">{{$category->name}}</a>
+			@endforeach
+		</ul>
     </div>
 </div>
 @endsection
