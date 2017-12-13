@@ -2,28 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Barter;
+use Illuminate\Http\Request;
 
 class BarterController extends Controller
 {
     /**
-    * Only user with access can have a profile.
-    */
+     * Only user with access can have a profile.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-
-
     /**
-    * Create a new barter.
-    * @return view
-    */
+     * Create a new barter.
+     * @return view
+     */
     public function create(Request $request)
     {
-        if (!isset($request->product_id)) {
+        if (! isset($request->product_id)) {
             return redirect('/home');
         }
 
@@ -36,7 +34,7 @@ class BarterController extends Controller
 
     public function store(Request $request)
     {
-        if (!isset($request->product_id) || !isset($request->my_product_id)) {
+        if (! isset($request->product_id) || ! isset($request->my_product_id)) {
             return redirect('/home');
         }
 
@@ -52,6 +50,7 @@ class BarterController extends Controller
             if (in_array($request->my_product_id, $products) && in_array($request->product_id, $products)) {
                 // confirm the succes to the user
                 session()->flash('message', ' Troc request already exists !');
+
                 return redirect('/home');
             } else {
                 dump($request->my_product_id);
@@ -66,7 +65,6 @@ class BarterController extends Controller
 
         $barter->products()->attach($request->my_product_id);
         $barter->products()->attach($request->product_id);
-
 
         // confirm the succes to the user
         session()->flash('message', ' Troc request created with success !');
