@@ -42,6 +42,11 @@ Route::prefix('/profile')->group(function () {
         Route::post('{product}', 'PicturesController@store');
         Route::delete('{picture}', 'PicturesController@destroy');
     });
+
+    Route::prefix('barter')->group(function () {
+        Route::post('create', 'BarterController@create');
+        Route::post('store', 'BarterController@store');
+    });
 });
 
 Route::prefix('checkout')->group(function () {
