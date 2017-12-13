@@ -1,15 +1,15 @@
-<div class="card" style="margin-bottom:10px; background-color: #563d7c; color:white">
+<div class="card" style="margin-bottom:10px; background-color: #22427C; color:white">
   <div class="body"><h1 class="display-4 text-center">Produit voulu</h1></div>
 </div>
 <div class="card">
   <div class="card-body">
-      <table class="table table-hover table-responsive">
+      <table class="table table-hover">
         <caption>Produit voulu</caption>
-        <thead class="thead-dark">
+        <thead class="thead-light">
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">name</th>
-            <th scope="col">number of image</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Number of image</th>
           </tr>
         </thead>
         <tbody>
@@ -28,18 +28,18 @@
       </table>
   </div><!-- END CARD-BODY -->
 </div><!--END CARD -->
-<div class="card" style="margin-bottom:10px; background-color: #563d7c; color:white">
+<div class="card" style="margin-bottom:10px; background-color: #22427C; color:white">
   <div class="body"><h1 class="display-4 text-center">List of your products</h1></div>
 </div>
 <div class="card">
   <div class="card-body">
-    <table class="table table-hover table-responsive">
+    <table class="table table-hover">
       <caption>Which product do you want to troc?</caption>
-      <thead class="thead-dark">
+      <thead class="thead-light">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">name</th>
-          <th scope="col">number of image</th>
+          <th scope="col">Image</th>
+          <th scope="col">Name</th>
+          <th scope="col">Number of image</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
