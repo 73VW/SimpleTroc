@@ -1,10 +1,10 @@
 #main .card{
 	margin-right: 5%;
 	margin-bottom: 5%;
-	margin-top: 2%; 
+	margin-top: 2%;
 	width: 27%;
 }
-	
+
 #main #products{
 	margin-left: 5%;
 	padding-left: 10px;
@@ -75,4 +75,8 @@
 
 #main #categories_list {
 	margin-top: 20%;
+}
+
+h1{
+	color:white;
 }

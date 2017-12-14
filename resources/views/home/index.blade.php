@@ -32,7 +32,7 @@ $i = 0;
                     @foreach($product->pictures()->get() as $picture)
                     <div class="owl-item">
                         <div class="item">
-                            <img class="image card-img-top" src="{{$picture->link()}}" alt="Card image cap" width="350" height="200">
+                            <a href="{{$picture->link()}}"><img class="image card-img-top" src="{{$picture->link()}}" alt="Card image cap" ></a>
                         </div>
                     </div>
                     @endforeach
@@ -50,16 +50,19 @@ $i = 0;
                             <p class="lead">{{$product->price}} frs</p>
                         </div>
                         <div class="col-md-5 boutons" id="btn{{$i++}}">
+                            @auth
                             <form action="profile/barter/create" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="product_id" value="{{$product->id}}"><br>
                                 <input class="btn btn-primary fa fa-exchange bouton" type="submit" aria-hidden="true" value="&#xf0ec;">
                             </form>
-                            <a  class="btn btn-success fa fa-money" aria-hidden="true" href="#"></a>
+                            @else
+                            <a  class="btn btn-success fa fa-lock" aria-hidden="true" href="{{ route('login') }}"></a>
+                            @endauth
                         </div>
                     </div>
                 </div>
-                <div class="card-footer text-muted">
+                <div class="card-footer">
                     <p class="row card-text date">{{$product->created_at->diffForHumans()}}</p>
                 </div>
             </div>
@@ -68,13 +71,6 @@ $i = 0;
         <div class="row paginationPerso">
             {{$products->links()}}
         </div>
-    </div>
-	<div id="categories" style="background-color: #22427C;">
-    	<ul class="navbar-nav" id="categories_list">		
-	    	@foreach(\App\Category::all() as $category)
-				<a class="nav-link" href="#">{{$category->name}}</a>
-			@endforeach
-		</ul>
     </div>
 </div>
 @endsection
