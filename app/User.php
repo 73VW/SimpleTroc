@@ -40,7 +40,7 @@ class User extends Authenticatable
     }
 
     /**
-     * User can have many commnents
+     * User can have many commnents.
      * @return a collection of Comment
      */
     public function comments()
@@ -49,10 +49,11 @@ class User extends Authenticatable
     }
 
     /**
-     * User can have many talks
+     * User can have many talks.
      * @return a collection of Talk
      */
-    public function talks(){
+    public function talks()
+    {
         return $this->belongsToMany(Talk::class);
     }
 
@@ -75,7 +76,7 @@ class User extends Authenticatable
     }
 
     /**
-     * current user create new barter
+     * current user create new barter.
      */
     public function addBarter()
     {

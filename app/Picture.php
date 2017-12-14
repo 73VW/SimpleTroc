@@ -1,9 +1,6 @@
 <?php
 
 namespace App;
-use League\Flysystem\Filesystem;
-use Spatie\Dropbox\Client;
-use Spatie\FlysystemDropbox\DropboxAdapter;
 
 /**
  * Picture model.
@@ -18,7 +15,6 @@ class Picture extends Model
     {
         return $this->belongsTo(Product::class);
     }
-
 
     /**
      * return a temporary link to the image.
