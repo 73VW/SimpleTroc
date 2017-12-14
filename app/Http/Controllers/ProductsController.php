@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Request;
+use App\User;
 use App\Product;
 use App\Http\Requests\ProductForm;
 use Illuminate\Support\Facades\Storage;
@@ -147,5 +148,10 @@ class ProductsController extends Controller
 
         // redirect to the profile user product
         return redirect('profile/products');
+    }
+
+    public function getUserProducts(User $user)
+    {
+        return Product::where('user_id', '=', $user->id)->get();
     }
 }

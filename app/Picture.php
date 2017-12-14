@@ -23,8 +23,7 @@ class Picture extends Model
     public function link()
     {
         $adapter = \Storage::disk('dropbox')->getAdapter();
-        $client = $adapter->getClient();
 
-        return $client->getTemporaryLink('public/'.$this->path);
+        return $adapter->getTemporaryLink('public/'.$this->path);
     }
 }
