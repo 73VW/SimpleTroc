@@ -24,6 +24,11 @@ class Talk extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function barter()
+    {
+        return $this->hasOne(Talk::class);
+    }
+
     /**
      * get the other user in the conversation.
      * @return [type] [description]
@@ -42,6 +47,7 @@ class Talk extends Model
 
     public function getNoReadComment()
     {
-        return count($this->comments()->where('isRead', false)->get());
+        $me = auth()->user()->id;
+        return count($this->comments()->where('isRead', false)->where('user_id','!=', $me)->get());
     }
 }

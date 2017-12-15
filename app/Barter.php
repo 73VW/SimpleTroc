@@ -27,6 +27,10 @@ class Barter extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function barter(){
+        return $this->belongsTo(Talk::class);
+    }
+
     public function getUserTroc()
     {
         //$user = \App\User::where('id', $this->b_user_id)->first();

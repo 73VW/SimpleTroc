@@ -104,11 +104,8 @@ class BarterController extends Controller
 
     public function closeDeal(Barter $barter)
     {
-        //step 1 : detach all product related with the barter from the pivot table
-        $barter->delete();
-
-        //step 3 : confirm the current user that he decline the barter
-        session()->flash('message', ' Your close the barter !');
+        //step 1 : Close the product
+        $barter->isClose = True;
 
         //step 4 return to the view
         return redirect('/profile');
@@ -133,6 +130,7 @@ class BarterController extends Controller
 
         $talk = Talk::create();
         $talk->title = 'Echange en dur';
+        $talk->barter_id = $barter->id;
         $talk->save();
 
         //step 2 :
@@ -145,8 +143,12 @@ class BarterController extends Controller
             $talk->users()->attach($user);
         }
 
+
         //step 3 : closeTheDeal
         $this->closeDeal($barter);
+
+        //step 3.bis : confirm the current user that he decline the barter
+        session()->flash('message', ' Your close the barter !');
 
         //step 4 : go to the conversation
         return redirect('/talks/show/'.$talk->id);

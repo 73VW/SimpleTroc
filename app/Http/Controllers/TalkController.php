@@ -16,8 +16,17 @@ class TalkController extends Controller
 
     public function show(Talk $talk)
     {
-        $comments = $talk->comments()->get();
+        $comments = $talk->comments()->latest()->get();
 
         return view('talks.show', compact('comments', 'talk'));
+    }
+
+    public function closeTalk(Talk $talk){
+        $me = auth()->user()->id;
+        if($talk->barter()->where('user_id', $me)){
+            $talk->isLeftUserClose = True;
+        }else{
+            $talk->isRightUserClose = True;
+        }
     }
 }
