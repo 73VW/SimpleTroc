@@ -21,7 +21,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/home', 'HomeController@index');
 
-
 Route::get('/barters', 'BarterController@index');
 Route::get('/barters/delete/{barter}', 'BarterController@refuseDeal');
 Route::get('/barters/close/{barter}', 'BarterController@closeDeal');

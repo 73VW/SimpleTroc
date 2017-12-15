@@ -105,7 +105,7 @@ class BarterController extends Controller
     public function closeDeal(Barter $barter)
     {
         //step 1 : Close the product
-        $barter->isClose = True;
+        $barter->isClose = true;
 
         //step 4 return to the view
         return redirect('/profile');
@@ -142,7 +142,6 @@ class BarterController extends Controller
             $user = $product->user()->get();
             $talk->users()->attach($user);
         }
-
 
         //step 3 : closeTheDeal
         $this->closeDeal($barter);

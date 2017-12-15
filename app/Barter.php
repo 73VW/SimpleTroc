@@ -27,7 +27,8 @@ class Barter extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function barter(){
+    public function barter()
+    {
         return $this->belongsTo(Talk::class);
     }
 

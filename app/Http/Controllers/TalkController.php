@@ -21,12 +21,13 @@ class TalkController extends Controller
         return view('talks.show', compact('comments', 'talk'));
     }
 
-    public function closeTalk(Talk $talk){
+    public function closeTalk(Talk $talk)
+    {
         $me = auth()->user()->id;
-        if($talk->barter()->where('user_id', $me)){
-            $talk->isLeftUserClose = True;
-        }else{
-            $talk->isRightUserClose = True;
+        if ($talk->barter()->where('user_id', $me)) {
+            $talk->isLeftUserClose = true;
+        } else {
+            $talk->isRightUserClose = true;
         }
     }
 }

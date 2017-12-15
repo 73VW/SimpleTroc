@@ -26,7 +26,7 @@ class Talk extends Model
 
     public function barter()
     {
-        return $this->hasOne(Talk::class);
+        return $this->hasOne(self::class);
     }
 
     /**
@@ -48,6 +48,7 @@ class Talk extends Model
     public function getNoReadComment()
     {
         $me = auth()->user()->id;
-        return count($this->comments()->where('isRead', false)->where('user_id','!=', $me)->get());
+
+        return count($this->comments()->where('isRead', false)->where('user_id', '!=', $me)->get());
     }
 }
