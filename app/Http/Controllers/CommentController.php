@@ -15,15 +15,14 @@ class CommentController extends Controller
     }
 
     /**
-     * turn comment(s) to true from the current talk.
+     * turn comment(s) to true from the current talk
      * @param  Talk    $talk
-     * @return bool
+     * @return boolean
      */
-    public function hasRead(Talk $talk)
-    {
-        $me = auth()->user()->id;
-        $talk->comments()->where('user_id', '!=', $me)->update(['isRead' => true]);
+    public function hasRead(Talk $talk){
+    	$me = auth()->user()->id;
+    	$talk->comments()->where('user_id','!=', $me)->update(['isRead' => true]);
 
-        return 'all message read';
+    	return "all message read";
     }
 }

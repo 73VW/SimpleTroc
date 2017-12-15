@@ -21,13 +21,17 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/home', 'HomeController@index');
 
+
 Route::get('/barters', 'BarterController@index');
-Route::get('/barters/delete/{barter}', 'BarterController@refuseDeal');
+Route::get('/barters/refuse/{barter}', 'BarterController@refuseDeal');
 Route::get('/barters/close/{barter}', 'BarterController@closeDeal');
 Route::get('/barters/abort/{barter}', 'BarterController@abortDeal');
 Route::get('/barters/accept/{barter}', 'BarterController@acceptDeal');
 
 Route::get('/talks/show/{talk}', 'TalkController@show');
+Route::get('/talks/close/{talk}', 'TalkController@closeTalk');
+Route::get('/talks/cancel/{talk}', 'TalkController@cancelTalk');
+
 
 Route::post('/comments/hasRead/{talk}', 'CommentController@hasRead');
 Route::post('/comments', 'CommentController@store');

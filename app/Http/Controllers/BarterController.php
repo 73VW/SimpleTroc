@@ -39,7 +39,7 @@ class BarterController extends Controller
 
         $wanted = \App\Product::where('id', '=', $request->product_id)->get()[0];
 
-        $products = auth()->user()->products()->get();
+        $products = auth()->user()->products()->where('state', 0)->get();
 
         return view('barter.index', compact('products', 'wanted'));
     }
@@ -73,7 +73,6 @@ class BarterController extends Controller
         }
         // store barter
         // attach product to barter
-        $barter = Barter::create();
         $barter = auth()->user()->addBarter();
 
         $barter->products()->attach($request->my_product_id);
@@ -90,10 +89,11 @@ class BarterController extends Controller
     {
 
         //step 1 : detach all product related with the barter from the pivot table
-        $barter->products()->detach();
+        //$barter->products()->detach();
 
         //step 2 : say to the user that is refuse the barter
         $barter->isRefuse = true;
+        $barter->save();
 
         //step 3 : confirm the current user that he decline the barter
         session()->flash('message', ' Your decline his offer !');
@@ -105,7 +105,9 @@ class BarterController extends Controller
     public function closeDeal(Barter $barter)
     {
         //step 1 : Close the product
-        $barter->isClose = true;
+        $barter->products()->detach();
+        $barter->isClose=true;
+        $barter->save();
 
         //step 4 return to the view
         return redirect('/profile');
@@ -126,12 +128,17 @@ class BarterController extends Controller
 
     public function acceptDeal(Barter $barter)
     {
-        //step 1 : create a talk between the two user
-
+        //step 1 : create a talk between the two users
         $talk = Talk::create();
-        $talk->title = 'Echange en dur';
+        $left = $barter->getUserProductTroc()->name;
+        $right = $barter->getUserRightProductTroc()->name;
+        $talk->title = $left.' against '.$right;
         $talk->barter_id = $barter->id;
         $talk->save();
+
+        //step 1.bis
+        $barter->isClose=True;
+        $barter->save();
 
         //step 2 :
         //-  attach to the pivot table
@@ -142,6 +149,7 @@ class BarterController extends Controller
             $user = $product->user()->get();
             $talk->users()->attach($user);
         }
+
 
         //step 3 : closeTheDeal
         $this->closeDeal($barter);
