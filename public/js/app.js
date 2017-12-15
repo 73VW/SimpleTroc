@@ -964,7 +964,9 @@ module.exports = Cancel;
 
 __webpack_require__(10);
 __webpack_require__(43);
-module.exports = __webpack_require__(44);
+__webpack_require__(44);
+__webpack_require__(45);
+module.exports = __webpack_require__(46);
 
 
 /***/ }),
@@ -980,6 +982,8 @@ module.exports = __webpack_require__(44);
 
 __webpack_require__(11);
 window.Vue = __webpack_require__(36);
+
+$(':button').addClass('bouton');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -46840,6 +46844,18 @@ if (false) {
 
 /***/ }),
 /* 44 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 46 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

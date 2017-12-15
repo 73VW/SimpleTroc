@@ -10627,3 +10627,28 @@ li.fancybox-thumbs-loading {
   }
 }
 
+#products .card {
+  background-color: rgba(34, 66, 124, 0.8);
+  color: white;
+}
+
+#products .card-footer {
+  color: white;
+}
+
+#products .owl-item {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+#products .owl-item image {
+  width: 100%;
+}
+
+.table .thead-light th {
+  color: white;
+  background-color: transparent;
+  text-align: center;
+}
+
