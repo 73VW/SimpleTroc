@@ -138,7 +138,7 @@
 								        {{$talk->lastComment()->body}}
 								      </div>
 								    @else
-								    	<p>Aucun message échanger...</p>
+								    	<p><strong>Aucun message échanger...</strong></p>
 								    @endif
 								    </div>
 								  </div>
@@ -147,8 +147,8 @@
 							 Show
 							</a>
 						</div>
-					    <div class="right floated author">
-					    	2 hour ago
+					    <div class="right floated meta">
+					    	Last message : {{$talk->lastComment()->created_at->diffForHumans()}}
 					    </div>
 					  </div>
 					</div>
