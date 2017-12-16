@@ -17,8 +17,6 @@ class CreateBartersTable extends Migration
             $table->increments('id');
 
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('b_user_id');
-            $table->unsignedInteger('b_user_product_id');
             $table->boolean('isClose')->default(false);
             $table->boolean('isRefuse')->default(false);
             $table->timestamps();

@@ -16,6 +16,7 @@ class CreateTalksTable extends Migration
         Schema::create('talks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->unsignedInteger('barter_id');
             $table->boolean('isUserLeftClose')->default(false); //user : make the barter
             $table->boolean('isUserRightClose')->default(false); //user : accept the offer
             $table->timestamps();

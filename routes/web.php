@@ -28,6 +28,8 @@ Route::get('/barters/abort/{barter}', 'BarterController@abortDeal');
 Route::get('/barters/accept/{barter}', 'BarterController@acceptDeal');
 
 Route::get('/talks/show/{talk}', 'TalkController@show');
+
+Route::post('/comments/hasRead/{talk}', 'CommentController@hasRead');
 Route::post('/comments', 'CommentController@store');
 
 Route::prefix('/profile')->group(function () {
