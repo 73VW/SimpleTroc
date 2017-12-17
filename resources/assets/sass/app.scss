@@ -1,9 +1,40 @@
-
+$text-color: rgb(240,240,240);
+$text-color-hover: adjust-color($text-color, $red: -206, $green: -174, $blue: -116);
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
 // Bootstrap
 @import "node_modules/bootstrap/scss/bootstrap.scss";
 
-@import "node_modules/@fancyapps/fancybox/dist/jquery.fancybox"
+@import "node_modules/@fancyapps/fancybox/dist/jquery.fancybox";
 
+
+#products{
+    .card{
+        background-color: transparentize($text-color-hover, 0.2);
+        color: white;
+    }
+    .card-footer{
+        color:white;
+    }
+
+    .owl-item {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .owl-item image {
+        width: 100%;
+    }
+}
+
+.table{
+    .thead-light{
+        th{
+            color:white;
+            background-color: transparent;
+            text-align: center;
+        }
+    }
+}

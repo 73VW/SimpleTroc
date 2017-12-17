@@ -1,0 +1,81 @@
+$text-color: rgb(240,240,240);
+$text-color-hover: adjust-color($text-color, $red: -206, $green: -174, $blue: -116);
+html, body {
+    color: $text-color;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    height: 100vh;
+    margin: 0;
+    //image source : https://pixabay.com/fr/accord-boissons-remue-méninges-2679506/
+    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/img/handshake.jpg');
+    background-position:center top;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links {
+
+    border-top: 1px solid white;
+    padding-top: 7vh;
+}
+
+.links > a {
+    color: $text-color;
+    margin: 6vh;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    text-shadow: 2px 2px $text-color-hover;
+}
+
+$border: 3px solid white;
+$margin: 5vw;
+
+.links > a:first-child{
+    border-right: $border;
+    padding-right: $margin;
+}
+
+.links > a:last-child{
+    border-left: $border;
+    padding-left: $margin;
+}
+
+.links > a:hover{
+    color: $text-color-hover;
+    text-shadow: 2px 2px $text-color;
+}
+
+.m-b-md {
+    margin-bottom: 6vh;
+    text-shadow: 2px 2px $text-color-hover;
+}
