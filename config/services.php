@@ -1,9 +1,9 @@
 <?php
 
 if (isset($_SERVER['SERVER_NAME'])) {
-    $server_name=$_SERVER['SERVER_NAME'];
+    $server_name = $_SERVER['SERVER_NAME'];
 } else {
-    $server_name="localhost";
+    $server_name = 'localhost';
 }
 
 return [
