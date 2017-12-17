@@ -1,5 +1,11 @@
 <?php
 
+if (isset($_SERVER['SERVER_NAME'])) {
+    $server_name = $_SERVER['SERVER_NAME'];
+} else {
+    $server_name = 'localhost';
+}
+
 return [
 
     /*
@@ -33,6 +39,13 @@ return [
         'model' => App\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
+    ],
+
+    'facebook' => [
+        'client_id' => env('FACEBOOK_ID'), //Facebook API
+        'client_secret' => env('FACEBOOK_SECRET'), //Facebook Secret
+        'redirect' => $server_name.'/login/facebook/callback',
+
     ],
 
 ];
