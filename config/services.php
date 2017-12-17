@@ -66,7 +66,6 @@ return [
         'client_id' => env('GITHUB_ID'),
         'client_secret' => env('GITHUB_SECRET'),
         'redirect' => 'https://'.$server_name.'/login/github/callback',
-
     ],
 
 ];

@@ -6,7 +6,7 @@
 }
 
 #main #products{
-	margin-left: 5%;
+	margin-left: 10%;
 	padding-left: 10px;
 	position: absolute;
 	float: left;
@@ -21,7 +21,7 @@
 }
 
 #main #search_bar{
-	margin-left: 5%;
+	margin-left: 12%;
 }
 
 #main #categories{
@@ -34,6 +34,15 @@
 	right:0;
 	bottom:0;
 	left:0;
+}
+
+#main #grid{
+	margin-right: 2%;
+}
+
+#main .boutons form {
+	margin-top: -20%;
+	margin-left: 25%;
 }
 
 #main .card .description{
@@ -59,6 +68,7 @@
 }
 
 #main .boutons{
+	margin-top: 1%;
 	margin-left: 0%;
 	margin-right: -5%;
 }
