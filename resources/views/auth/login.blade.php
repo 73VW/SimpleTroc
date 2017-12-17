@@ -59,8 +59,12 @@
                         Forgot Your Password?
                     </a>
                 </div>
-
             </form>
+            <div class="form-group">
+                <h5 class="col-sm-14 control-label">Login With
+                </h5>
+                @include('socials')
+            </div>
         </div>
     </div>
 </div>

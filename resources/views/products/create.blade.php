@@ -28,6 +28,7 @@
                     <div class="col-sm-20">
                         <div class="input-group">
                             <input type="number"
+                            min="0"
                             name="price" placeholder="Price of product"
                             class="form-control" value="{{old('price')}}">
 
