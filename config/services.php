@@ -35,11 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
-
     'facebook' => [
         'client_id' => env('FACEBOOK_ID'), //Facebook API
         'client_secret' => env('FACEBOOK_SECRET'), //Facebook Secret
-        'redirect' => $_SERVER['SERVER_NAME'] . '/login/facebook/callback',
+        'redirect' => $_SERVER['SERVER_NAME'].'/login/facebook/callback',
 
     ],
 
