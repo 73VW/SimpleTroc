@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "8911bfd6b49160ecf617bfe087b3b5f9",
+=======
+    "content-hash": "cdb0fd15bdb3b8052c46e11e1f860093",
+>>>>>>> Trying to use Socialite
     "packages": [
         {
             "name": "benjamincrozat/laravel-dropbox-driver",
