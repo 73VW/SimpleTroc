@@ -24,6 +24,7 @@
 
                 <div class="form-group {{ $errors->has('price') ? ' has-error' : '' }}">
                     <input type="number"
+                    min="0"
                     name="price" placeholder="price of product"
                     class="form-control" value="{{$product->price}}">
 

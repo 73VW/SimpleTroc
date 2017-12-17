@@ -55,6 +55,7 @@
                 {{-- NPA --}}
                 <div class="form-group">
                     <input type="text" class="form-control"
+                    min="0"
                     name="npa"
                     value="{{Auth::user()->npa}}"
                     placeholder="your npa"

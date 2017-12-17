@@ -14,7 +14,7 @@
                     <div class="col-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required placeholder="Enter your Name">
+                            <input id="name" type="text" class="form-control" name="name" @if(!empty($name)) value="{{$name}}" @else value="{{ old('name') }}" @endif required placeholder="Enter your Name">
 
                             @if ($errors->has('name'))
                             <span class="help-block">
@@ -32,7 +32,7 @@
                     <div class="col-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="Enter your E-Mail">
+                            <input id="email" type="email" class="form-control" name="email" @if(!empty($email)) value="{{$email}}" @else value="{{ old('email') }}" @endif required placeholder="Enter your E-Mail">
 
                             @if ($errors->has('email'))
                             <span class="help-block">
@@ -91,7 +91,7 @@
                     <div class="col-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-location-arrow fa" aria-hidden="true"></i></span>
-                            <input id="npa" type="number" class="form-control" name="npa" value="{{ old('npa') }}" required placeholder="Enter your NPA" />
+                            <input id="npa" type="number" min="0" class="form-control" name="npa" value="{{ old('npa') }}" required placeholder="Enter your NPA" />
 
                             @if ($errors->has('address'))
                             <span class="help-block">
@@ -140,11 +140,15 @@
                     <button type="submit" class="btn btn-primary">
                         Register
                     </button>
+                    <h5 class="col-sm-14 control-label">Register With
+                    </h5>
+                    @include('socials')
                 </div>
                 {{-- END SUBMIT --}}
 
             </form>
         </div>
+        <
     </div>
 </div> {{-- CONTAINER --}}
 @endsection
