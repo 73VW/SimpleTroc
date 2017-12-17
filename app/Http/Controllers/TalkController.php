@@ -24,10 +24,34 @@ class TalkController extends Controller
     public function closeTalk(Talk $talk)
     {
         $me = auth()->user()->id;
-        if ($talk->barter()->where('user_id', $me)) {
-            $talk->isLeftUserClose = true;
+        if ($talk->barter()->where('user_id', $me)->first()) {
+            $talk->isUserLeftClose = true;
         } else {
-            $talk->isRightUserClose = true;
+            $talk->isUserRightClose = true;
         }
+
+        if ($talk->isUserRightClose && $talk->isUserLeftClose) {
+            $talk->isClose = true;
+        }
+
+        $talk->save();
+
+        return redirect()->back();
+    }
+
+    public function cancelTalk(Talk $talk)
+    {
+        //detach both user from the conversation
+        $talk->users()->detach();
+        //change the state of product to 0 (mean that the product is now available for the market)
+        $barter = $talk->barter()->first();
+        $barter->products()->update(['state' => 0]);
+
+        $talk->delete();
+        $barter->delete();
+
+        session()->flash('message', 'You cancel the transaction');
+
+        return redirect('/profile');
     }
 }

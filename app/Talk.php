@@ -26,7 +26,7 @@ class Talk extends Model
 
     public function barter()
     {
-        return $this->hasOne(self::class);
+        return $this->belongsTo(Barter::class);
     }
 
     /**
@@ -43,6 +43,21 @@ class Talk extends Model
     public function lastComment()
     {
         return $this->comments()->latest()->first();
+    }
+
+    public function AmITheUserLeft()
+    {
+        return $this->barter()->where('user_id', auth()->user()->id)->first();
+    }
+
+    public function isOver()
+    {
+        return $this->isUserLeftClose && $this->isUserRightClose;
+    }
+
+    public function hasOneOver()
+    {
+        return $this->AmITheUserLeft() && $this->isUserLeftClose || ! $this->AmITheUserLeft() && $this->isUserRightClose;
     }
 
     public function getNoReadComment()

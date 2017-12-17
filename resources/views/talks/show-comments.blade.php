@@ -3,14 +3,21 @@
 			  		<form action="/comments/" method="post" class="ui reply form">
 				  		{{ csrf_field() }}
 				  	<div class="ui fluid action input">
-					  <input type="text" id="body" name="body"  placeholder="hi! where we meet for the transaction ?">
+					  <input type="text" id="body" name="body" @if($talk->isOver()) disabled @endif  placeholder="hi! where we meet for the transaction ?">
 					  <input type="hidden" name="talk_id" value="{{$talk->id}}">
-					  <button type="submit" class="ui purple right labeled icon button">
-					    <i class="send icon"></i>
-						send
-					  </button>
-					</div>
-				  </form>
+					  @if (!$talk->isOver())
+						  <button type="submit" class="ui purple right labeled icon button">
+						    <i class="send icon"></i>
+							send
+						  </button>
+						</div>
+				  	</form>
+					 @else
+						 <button class="ui purple disabled right labeled icon button">
+						   <i class="send icon"></i>
+						   send
+						 </button>
+				  	 @endif
 			  		@foreach ($comments as $comment)
 			  		  <div class="comment">
 					    <div class="scrolling content">

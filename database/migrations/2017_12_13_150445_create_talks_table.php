@@ -19,6 +19,7 @@ class CreateTalksTable extends Migration
             $table->unsignedInteger('barter_id');
             $table->boolean('isUserLeftClose')->default(false); //user : make the barter
             $table->boolean('isUserRightClose')->default(false); //user : accept the offer
+            $table->boolean('isClose')->default(false);
             $table->timestamps();
         });
 

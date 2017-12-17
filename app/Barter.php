@@ -19,7 +19,14 @@ class Barter extends Model
     {
         $userProduct = $this->products()->where('user_id', $this->user_id)->first();
 
-        return $userProduct->name;
+        return $userProduct;
+    }
+
+    public function getUserRightProductTroc()
+    {
+        $userProduct = $this->products()->where('user_id', '!=', $this->user_id)->first();
+
+        return $userProduct;
     }
 
     public function user()
@@ -27,16 +34,33 @@ class Barter extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function barter()
+    public function talk()
     {
-        return $this->belongsTo(Talk::class);
+        return $this->hasOne(Talk::class);
     }
 
     public function getUserTroc()
     {
-        //$user = \App\User::where('id', $this->b_user_id)->first();
         $user = \App\User::where('id', $this->user_id)->first();
 
         return $user;
+    }
+
+    public function getUserRightTroc()
+    {
+        $p = $this->products()->where('user_id', '!=', $this->user_id)->first();
+
+        return $p->user()->first();
+    }
+
+    /**
+     * check if this barter is different from  own id ! if yes, this is a proposition.
+     * @return bool
+     */
+    public function isProposition()
+    {
+        $u = $this->user()->first();
+
+        return auth()->user()->id != $u->id;
     }
 }
