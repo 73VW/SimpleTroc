@@ -14,7 +14,7 @@
                     <div class="col-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required placeholder="Enter your Name">
+                            <input id="name" type="text" class="form-control" name="name" @if(!empty($name)) value="{{$name}}" @else value="{{ old('name') }}" @endif required placeholder="Enter your Name">
 
                             @if ($errors->has('name'))
                             <span class="help-block">
@@ -32,7 +32,7 @@
                     <div class="col-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="Enter your E-Mail">
+                            <input id="email" type="email" class="form-control" name="email" @if(!empty($mail)) value="{{$mail}}" @else value="{{ old('mail') }}" @endif required placeholder="Enter your E-Mail">
 
                             @if ($errors->has('email'))
                             <span class="help-block">
@@ -140,11 +140,22 @@
                     <button type="submit" class="btn btn-primary">
                         Register
                     </button>
+                    <h5 class="col-sm-14 control-label">Register With
+                    </h5>
+                    <div class="col-sm-14">
+                        <a href="{{ url('login/facebook') }}" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+                        <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+                        <a class="btn btn-social-icon btn-google-plus"><i class="fa fa-google-plus"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a>
+                        <a class="btn btn-social-icon btn-github"><i class="fa fa-github"></i></a>
+                        <a class="btn btn-social-icon btn-bitbucket"><i class="fa fa-bitbucket"></i></a>
+                    </div>
                 </div>
                 {{-- END SUBMIT --}}
 
             </form>
         </div>
+        <
     </div>
 </div> {{-- CONTAINER --}}
 @endsection

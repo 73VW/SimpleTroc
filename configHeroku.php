@@ -3,13 +3,13 @@
 //adds a provider for Heroku
 $filename = __DIR__.'/config/app.php';
 $pattern = '/(\'providers\' => \[)(.*?)(\].)/s';
-$classToAdd = "Fideloper\Proxy\TrustedProxyServiceProvider::class,";
+$classToAdd = "Fideloper\Proxy\TrustedProxyServiceProvider::class,".PHP_EOL."\Ecrmnn\LaravelHttps\Providers\ServiceProvider::class,";
 resourceAdder($filename, $pattern, $classToAdd);
 
 //adds a middleware for Heroku
 $filename = __DIR__.'/app/Http/Kernel.php';
 $pattern = '/(\$middleware = \[)(.*?)(\];)/s';
-$classToAdd = "\Fideloper\Proxy\TrustProxies::class,";
+$classToAdd = "\Fideloper\Proxy\TrustProxies::class,".PHP_EOL."\Ecrmnn\LaravelHttps\Http\Middleware\ForceHttps::class,";
 resourceAdder($filename, $pattern, $classToAdd);
 
 //function used to add the $classToAdd in $filename where $pattern is a match
