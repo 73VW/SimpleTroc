@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
-<<<<<<< HEAD
 use Auth;
 use App\User;
-=======
->>>>>>> Trying to use Socialite
 use Socialite;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -66,11 +63,7 @@ class LoginController extends Controller
         if ($user) {
             Auth::login($user);
 
-<<<<<<< HEAD
             return redirect('/profile');
-=======
-            return redirect()->url($redirectTo);
->>>>>>> Trying to use Socialite
         } else {
             return view('auth.register', ['name' => $userSocial->getName(), 'email' => $userSocial->getEmail()]);
         }

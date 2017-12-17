@@ -49,3 +49,12 @@ $text-color-hover: adjust-color($text-color, $red: -206, $green: -174, $blue: -1
     color: $text-color-hover;
     background-color: $text-color;
 }
+
+body{
+    font-size: 1.2rem;
+}
+
+.navbar-expand-md .navbar-nav .nav-link{
+    padding-right: 0rem;
+    padding-left: 1rem;
+}

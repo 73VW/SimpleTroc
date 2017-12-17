@@ -32,7 +32,7 @@
                     <div class="col-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                            
+
                             <input id="email" type="email" class="form-control" name="email" @if(!empty($email)) value="{{$email}}" @else value="{{ old('email') }}" @endif required placeholder="Enter your E-Mail">
 
                             @if ($errors->has('email'))
@@ -143,18 +143,7 @@
                     </button>
                     <h5 class="col-sm-14 control-label">Register With
                     </h5>
-<<<<<<< HEAD
                     @include('socials')
-=======
-                    <div class="col-sm-14">
-                        <a href="{{ url('login/facebook') }}" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
-                        <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
-                        <a class="btn btn-social-icon btn-google-plus"><i class="fa fa-google-plus"></i></a>
-                        <a class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a>
-                        <a class="btn btn-social-icon btn-github"><i class="fa fa-github"></i></a>
-                        <a class="btn btn-social-icon btn-bitbucket"><i class="fa fa-bitbucket"></i></a>
-                    </div>
->>>>>>> Trying to use Socialite
                 </div>
                 {{-- END SUBMIT --}}
 

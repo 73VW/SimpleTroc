@@ -19,7 +19,7 @@
                         <img src="{{$product->pictures()->first()->link()}}" alt="" class="img-fluid" width="200px" height="200px">
                     </td>
                     @else
-                    <td class="align-middle">no image</td>
+                    <td class="align-middle">No image</td>
                     @endif
                     <td class="align-middle">{{$product->name}}</td>
                     <td class="align-middle">{{count($product->pictures()->get())}}</td>

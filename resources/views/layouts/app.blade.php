@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     @yield('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/master.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bouton.css') }}" rel="stylesheet">
