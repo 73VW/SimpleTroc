@@ -162,50 +162,35 @@
 @endsection
 
 @section('css')
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
+	
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/assets/owl.carousel.min.css">
 @endsection
 
 @section('scripts')
- <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
-<script>
+	<script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+	<script>
+		$('.menu .item').tab();
 
+		function showUserStock(user_id){
+			axios.get("/api/user/1/products")
+			  .then(function (response) {
+			    console.log(response);
 
-	$('.menu .item').tab();
+			  })
+			  .catch(function (error) {
+			    console.log(error);
+			});
+		}
 
-	function showUserStock(user_id){
-		axios.get("/api/user/1/products")
-		  .then(function (response) {
-		    console.log(response);
-
-		  })
-		  .catch(function (error) {
-		    console.log(error);
+		$(document).ready(function(){
+	  		$(".owl-carousel").owlCarousel({
+	  			items:5,
+	  			loop: true,
+			    autoplay:true,
+			    autoplayTimeout:3000,
+			    autoplayHoverPause:true
+	  		});
 		});
-	}
-</script>
-@endsection
-
-@section('css')
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/assets/owl.carousel.min.css">
-@endsection
-
-@section('scripts')
- <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
-<script>
-	$(document).ready(function(){
-  		$(".owl-carousel").owlCarousel({
-  			items:5,
-  			loop: true,
-		    autoplay:true,
-		    autoplayTimeout:3000,
-		    autoplayHoverPause:true
-  		});
-	});
-
-	$('.menu .item').tab();
-</script>
+	</script>
 @endsection
