@@ -106,7 +106,7 @@ class BarterController extends Controller
     {
         //step 1 : Close the product
         $barter->products()->detach();
-        $barter->isClose=true;
+        $barter->isClose = true;
         $barter->save();
 
         //step 4 return to the view
@@ -137,7 +137,7 @@ class BarterController extends Controller
         $talk->save();
 
         //step 1.bis
-        $barter->isClose=True;
+        $barter->isClose = true;
         $barter->save();
 
         //step 2 :
@@ -149,7 +149,6 @@ class BarterController extends Controller
             $user = $product->user()->get();
             $talk->users()->attach($user);
         }
-
 
         //step 3 : closeTheDeal
         $this->closeDeal($barter);

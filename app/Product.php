@@ -33,6 +33,7 @@ class Product extends Model
     public function getUserName()
     {
         $u = $this->user()->first();
+
         return $u->name;
     }
 
@@ -84,7 +85,7 @@ class Product extends Model
     public function imagePath()
     {
         $p = $this->pictures()->first();
-        return $p->link();
 
+        return $p->link();
     }
 }

@@ -24,16 +24,14 @@ class TalkController extends Controller
     public function closeTalk(Talk $talk)
     {
         $me = auth()->user()->id;
-        if($talk->barter()->where('user_id', $me)->first())
-        {
-            $talk->isUserLeftClose = True;
-        }else{
-            $talk->isUserRightClose = True;
-
+        if ($talk->barter()->where('user_id', $me)->first()) {
+            $talk->isUserLeftClose = true;
+        } else {
+            $talk->isUserRightClose = true;
         }
 
-        if($talk->isUserRightClose && $talk->isUserLeftClose){
-            $talk->isClose=True;
+        if ($talk->isUserRightClose && $talk->isUserLeftClose) {
+            $talk->isClose = true;
         }
 
         $talk->save();
