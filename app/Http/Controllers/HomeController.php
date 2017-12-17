@@ -16,7 +16,7 @@ class HomeController extends Controller
         } else {
             $products = \App\Product::orderBy('created_at', 'desc')->paginate(6);
         }
-        if(isset($name)){
+        if (isset($name)) {
             $products = \App\Product::orderBy('created_at', 'desc')->where('name', 'like', "%$name%")->paginate(6);
         }
 
