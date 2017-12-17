@@ -65,9 +65,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="custom-file">
-                        <input type="file" name="image[]"  multiple="multiple" class="custom-file-input bouton" id="file2">
+                    <label class="custom-file" for="name">
+                        <input type="file" name="image[]"  multiple="multiple" class="custom-file-input bouton form-control" id="file2">
                         <span class="custom-file-control" id="lbl"></span>
+                        @if ($errors->has('image'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('image') }}</strong>
+                            </span>
+                        @endif
+
                     </label>
                 </div>
 

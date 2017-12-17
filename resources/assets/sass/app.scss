@@ -58,3 +58,13 @@ body{
     padding-right: 0rem;
     padding-left: 1rem;
 }
+
+.ui.secondary.pointing.menu .active.item , .ui.secondary.pointing.menu .item{
+    border-color: #edf6ff;
+    color: rgba(251, 251, 251, 0.95)    
+}
+
+.ui.secondary.pointing.menu .active.item:hover, .ui.secondary.pointing.menu a.item:hover{
+    border-color: #edf6ff;
+    color: rgba(251, 251, 251, 0.55)    
+}

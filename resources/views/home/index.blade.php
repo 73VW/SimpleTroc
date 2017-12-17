@@ -10,11 +10,11 @@ $i = 0;
     @include('layouts.sessions-flash')
     <div class="row" style="padding-left: 3%;">
         <div class="col-md-8" id="search_bar" >
-			<form action="{{route('home', $_GET)}}" method="GET">
-            	<div class="input-group col-md-12">
+			<form action="{{route('home', $_GET)}}" method="GET" class="col-md-12">
+            	<div class="row">
             		<input type="text" class="form-control col-md-10" placeholder="Recherche" aria-describedby="basic-addon2" name="search" 
-            			@if(isset($_GET['name']))
-                      	value="{{$_GET['name']}}"
+            			@if(isset($_GET['search']))
+                      	value="{{$_GET['search']}}"
                       	@else
                       	value=""
                         @endif>
