@@ -59,8 +59,19 @@
                         Forgot Your Password?
                     </a>
                 </div>
-
             </form>
+            <div class="form-group">
+                <h5 class="col-sm-14 control-label">Login With
+                </h5>
+                <div class="col-sm-14">
+                    <a href="{{ url('login/facebook') }}" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+                    <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+                    <a class="btn btn-social-icon btn-google-plus"><i class="fa fa-google-plus"></i></a>
+                    <a class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a>
+                    <a class="btn btn-social-icon btn-github"><i class="fa fa-github"></i></a>
+                    <a class="btn btn-social-icon btn-bitbucket"><i class="fa fa-bitbucket"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

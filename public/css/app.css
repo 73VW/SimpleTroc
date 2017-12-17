@@ -10652,3 +10652,15 @@ li.fancybox-thumbs-loading {
   text-align: center;
 }
 
+.btn-social-icon {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: #f0f0f0;
+  background-color: none;
+}
+
+.btn-social-icon:hover {
+  color: #22427c;
+  background-color: #f0f0f0;
+}
+
