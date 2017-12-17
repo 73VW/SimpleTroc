@@ -10,12 +10,17 @@ $i = 0;
     @include('layouts.sessions-flash')
     <div class="row" style="padding-left: 3%;">
         <div class="col-md-8" id="search_bar" >
-            <div class="input-group col-md-12">
-                <input type="text" class="form-control" placeholder="Recherche" aria-describedby="basic-addon2">
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-inverse" id="basic-addon2">Chercher</button>
-                </span>
-            </div>
+			<form action="{{route('home', $_GET)}}" method="GET">
+            	<div class="input-group col-md-12">
+            		<input type="text" class="form-control col-md-10" placeholder="Recherche" aria-describedby="basic-addon2" name="search" 
+            			@if(isset($_GET['name']))
+                      	value="{{$_GET['name']}}"
+                      	@else
+                      	value=""
+                        @endif>
+	                <button type="submit" class="btn btn-inverse col-md-2" id="basic-addon2">Chercher</button>
+	            </div>
+            </form>
         </div>
         <div class="col-md-2" style="padding-top: 2px;">
             <div class="col-md-12 boutons">
@@ -54,7 +59,7 @@ $i = 0;
                             <form action="profile/barter/create" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="product_id" value="{{$product->id}}"><br>
-                                <input class="btn btn-primary fa fa-exchange bouton" type="submit" aria-hidden="true" value="&#xf0ec;">
+                                <input class="btn btn-primary fa fa-exchange bouton" type="submit" aria-hidden="true" value="&#xf0ec;" style="margin-top: -10%;">
                             </form>
                             @else
                             <a  class="btn btn-success fa fa-lock" aria-hidden="true" href="{{ route('login') }}"></a>
