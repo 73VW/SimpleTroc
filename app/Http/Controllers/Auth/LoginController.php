@@ -65,6 +65,7 @@ class LoginController extends Controller
             return redirect()->url($redirectTo);
         } else {
             dd($userSocial);
+
             return view('auth.register', ['name' => $userSocial->getName(), 'email' => $userSocial->getEmail()]);
         }
     }
