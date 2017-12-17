@@ -30,6 +30,13 @@ class Product extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getUserName()
+    {
+        $u = $this->user()->first();
+
+        return $u->name;
+    }
+
     /**
      * Any Product may have many Carts.
      * @return an array of carts object
@@ -73,5 +80,12 @@ class Product extends Model
     public function storeImage(Picture $picture)
     {
         $this->pictures()->save($picture);
+    }
+
+    public function imagePath()
+    {
+        $p = $this->pictures()->first();
+
+        return $p->link();
     }
 }

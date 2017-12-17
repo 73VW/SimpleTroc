@@ -14,12 +14,12 @@
 			   </a>
 			  <a class="item" data-tab="second"><i class="handshake icon"></i>Propositions
 
-			  	@if (count($productHasBarters))
-			  	<div class="floating ui blue label"> {{count($productHasBarters)}}</div>
-			  	@endif
 			  </a>
+
 			  <a class="item" data-tab="third">	<i class="talk outline icon" ></i> Livraisons/Conversations
-			  	<div class="floating ui green label">{{count($talks)}}</div>
+				  @if(count($talks))
+			  	<div class="floating ui green label"> {{count($talks)}}</div>
+				@endif
 			  </a>
 			</div>
 
@@ -29,10 +29,9 @@
 						@if ($barter->isRefuse && !$barter->isClose)
 							<div class="ui red card">
 							  <div class="content">
-							  	<div class="ui red top attached label">A décliner votre offre !</div>
-							    <div class="header">A <i class="exchange icon"></i> B</div>
+							  	<div class="ui red top attached label">{{$barter->getUserRightTroc()->name}} décliner votre offre !</div>
+							    <div class="header">{{$barter->getUserProductTroc()->name}}<i class="exchange icon"></i> {{$barter->getUserRightProductTroc()->name}}</div>
 							    <div class="meta">
-							      <span class="left floated time">2 days ago</span>
 							    </div>
 							  </div>
 							  <div class="extra content">
@@ -48,13 +47,13 @@
 						@elseif(!$barter->isRefuse 	&& !$barter->isClose)
 							<div class="ui green card">
 							  <div class="content">
-							  	<div class="ui top attached label">En attente d'une réponse...</div>
-							    <div class="header">A <i class="exchange icon"></i> B</div>
+							  	<div class="ui top attached label">En attente d'une réponse de <strong>{{$barter->getUserRightTroc()->name}}</strong></div>
+							    <div class="image">
+									<img src="{{$barter->getUserRightProductTroc()->imagePath()}}" class="ui medium image" alt="">
+									<img src="{{$barter->getUserProductTroc()->imagePath()}}" class="ui medium image" alt="">
+								</div>
 							    <div class="meta">
-							      <span class="left floated time">2 days ago</span>
-							    </div>
-							    <div class="description">
-							      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum ipsum ea illo nihil excepturi odio maxime magni libero nobis atque necessitatibus perferendis facilis, animi dolores molestiae consectetur blanditiis harum doloribus!</p>
+									{{$barter->getUserRightProductTroc()->name}}
 							    </div>
 							  </div>
 							  <div class="extra content">
@@ -65,7 +64,7 @@
 								  </div>
 								</a>
 							    <div class="right floated author">
-							      Matt
+							      {{$barter->getUserRightTroc()->name}}
 							    </div>
 							  </div>
 							</div>
@@ -80,85 +79,86 @@
 
 	        <div class="ui bottom attached tab" data-tab="second">
 				@if (!count($productHasBarters))
-					<button class="btn btn-info float-right"><i class="undo icon"></i></button>
-					<div class="alert alert-primary float-left" role="alert">
-					  Pas de troc en cours...
-					</div>
+					<a href="/profile" class="btn btn-info float-right"><i class="undo icon"></i></a>
 
 				@else
 				<div class="ui items stacked segment">
-					@foreach ($productHasBarters as $product)
-						@foreach ($product->barters()->get() as $barter)
-						  <div class="item">
-							    <a class="ui tiny image red card">
-							      <img src="https://picsum.photos/200/">
-							    </a>
-							    <div class="content">
-							      <a class="header">{{$barter->getUserTroc()->name}}</a>
-							      <div class="description">
-							        <p class="lead">Vous propose d'échanger son <strong>{{$barter->getUserProductTroc()}}</strong> contre votre produit <strong>{{$product->name}}</strong> </p>
-							      </div>
-									<div class="ui buttons float-right">
-									  <a href="/barters/accept/{{$barter->id}}" class="ui button blue">Accepter</a>
+						@foreach ($productHasBarters as $product)
+							@foreach ($product->barters()->get() as $barter)
+							  @if ($barter->isProposition() && !$barter->isRefuse)
+								  <div class="item">
+									  <div class="ui small move up reveal image">
+										<img src="{{$product->imagePath()}}" class="visible content">
+										<img src="{{$barter->getUserProductTroc()->imagePath()}}" class="hidden content">
+									  </div>
+									    <div class="content">
 
-									  <div class="or"></div>
-									  <a href="/barters/delete/{{$barter->id}}" class="ui button red">Refuser</a>
-									</div>
-							    </div>
-						  </div>
-					  @endforeach
-					@endforeach
-				</div>
-				@endif
+									      <a class="header">{{$barter->getUserTroc()->name}}</a>
+									      <div class="description">
+									        <p class="lead">Want to trock it's <strong data-tooltip="{{$barter->getUserProductTroc()->description}}" data-position="top center">{{$barter->getUserProductTroc()->name}}</strong> against your product <strong>{{$product->name}}</strong></p>
+									      </div>
+											<div class="ui buttons float-right">
+											  <a href="/barters/accept/{{$barter->id}}" class="ui button blue">Accept</a>
 
-			</div>
-			<div class="ui bottom attached tab segment" data-tab="third">
-				<div class="ui four cards">
-				@foreach ($talks as $talk)
-					 <div class="ui raised red card">
-					  <div class="content">
-					  	   <div class="ui orange right ribbon label">
-					        <i class="announcement icon"></i> {{$talk->getNoReadComment()}}
-					      </div>
-					    <div class="header">{{$talk->title}}</div>
-					    <div class="meta">
-					      <span class="category">You are talking with <strong>{{$talk->otherUser()->name}}</strong></span>
-					    </div>
-					    <div class="ui divider"></div>
-					    <div class="description">
-								<div class="ui comments">
-								  <div class="comment">
-								    <div class="content">
-								    @if ($talk->lastComment())
-								      <a class="author">Matt</a>
-								      <div class="metadata">
-								        <span class="date">{{$talk->lastComment()->created}}</span>
-								      </div>
-								      <div class="text">
-								        {{$talk->lastComment()->body}}
-								      </div>
-								    @else
-								    	<p><strong>Aucun message échanger...</strong></p>
-								    @endif
-								    </div>
+											  <div class="or"></div>
+											  <a href="/barters/refuse/{{$barter->id}}" class="ui button red">Refuse</a>
+											</div>
+									    </div>
 								  </div>
-								</div>
-							<a href="/talks/show/{{$talk->id}}" class="ui mini purple inverted button">
-							 Show
-							</a>
-						</div>
-					    <div class="right floated meta">
-					    	Last message : {{$talk->lastComment()->created_at->diffForHumans()}}
-					    </div>
-					  </div>
+							  @endif
+						  @endforeach
+						@endforeach
 					</div>
-				@endforeach
+					@endif
+				</div>
+				<div class="ui bottom attached tab segment" data-tab="third">
+					<div class="ui four cards">
+					@foreach ($talks as $talk)
+						@if (!$talk->isOver())
+						<div class="ui raised red card">
+			   			  <div class="content">
+			   				   <div class="ui orange right ribbon label">
+			   					<i class="announcement icon"></i> {{$talk->getNoReadComment()}}
+			   				  </div>
+			   				<div class="header">{{$talk->title}}</div>
+			   				<div class="meta">
+			   				  <span class="category">You are talking with <strong>{{$talk->otherUser()->name}}</strong></span>
+			   				</div>
+			   				<div class="ui divider"></div>
+			   				<div class="description">
+			   						<div class="ui comments">
+			   						  <div class="comment">
+			   							<div class="content">
+			   							@if (count($talk->lastComment()))
+			   							  <a class="author"{{$talk->lastComment()->getUserName()}}</a>
+			   							  <div class="metadata">
+			   								<span class="date">{{$talk->lastComment()->created}}</span>
+			   							  </div>
+			   							  <div class="text">
+			   								{{$talk->lastComment()->body}}
+			   							  </div>
+			   							</div>
+			   						  </div>
+			   						</div>
+			   				</div>
+			   				<div class="right floated meta">
+			   					Last message : {{$talk->lastComment()->created_at->diffForHumans()}}
+			   				</div>
+			   				@else
+			   					<p><strong>No message yet</strong></p>
+			   				@endif
+							<a href="/talks/show/{{$talk->id}}" class="ui mini purple inverted button">
+			   				 Show
+			   				</a>
+						@endif
+						</div>
+					@endforeach
 				</div>
 			</div>
     	</div>
     </div>
 </div>
-@include('profiles/fragments/modal_choose_item');
+@include('profiles/fragments/modal_choose_item')
 @endsection
 
 @section('css')
