@@ -38,3 +38,14 @@ $text-color-hover: adjust-color($text-color, $red: -206, $green: -174, $blue: -1
         }
     }
 }
+
+.btn-social-icon{
+    transition: all 0.5s ease;
+    color: $text-color;
+    background-color: none;
+}
+
+.btn-social-icon:hover{
+    color: $text-color-hover;
+    background-color: $text-color;
+}
