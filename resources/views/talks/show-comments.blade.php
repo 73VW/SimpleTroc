@@ -1,6 +1,6 @@
 		<div class="ui comments">
 			  <div class="ui segment">
-			  		<form action="/comments/" method="post" class="ui reply form">
+			  		<form action="/comments" method="post" class="ui reply form">
 				  		{{ csrf_field() }}
 				  	<div class="ui fluid action input">
 					  <input type="text" id="body" name="body" @if($talk->isOver()) disabled @endif  placeholder="hi! where we meet for the transaction ?">

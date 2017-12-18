@@ -129,7 +129,7 @@
 			   						<div class="ui comments">
 			   						  <div class="comment">
 			   							<div class="content">
-			   							@if (count($talk->lastComment()))
+			   							@if (null !==$talk->lastComment())
 			   							  <a class="author"{{$talk->lastComment()->getUserName()}}</a>
 			   							  <div class="metadata">
 			   								<span class="date">{{$talk->lastComment()->created}}</span>
@@ -162,7 +162,7 @@
 @endsection
 
 @section('css')
-	
+
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/assets/owl.carousel.min.css">
 @endsection
 
