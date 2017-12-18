@@ -137,10 +137,10 @@ class BarterController extends Controller
             'barter_id' => $barter->id,
         ]);
 
-    //    dd($left, $right);
-    //    $talk->title = $left.' against '.$right;
-    //    $talk->barter_id = $barter->id;
-    //    $talk->save();
+        //    dd($left, $right);
+        //    $talk->title = $left.' against '.$right;
+        //    $talk->barter_id = $barter->id;
+        //    $talk->save();
 
         //step 1.bis
         $barter->isClose = true;
