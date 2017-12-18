@@ -129,12 +129,18 @@ class BarterController extends Controller
     public function acceptDeal(Barter $barter)
     {
         //step 1 : create a talk between the two users
-        $talk = Talk::create();
         $left = $barter->getUserProductTroc()->name;
         $right = $barter->getUserRightProductTroc()->name;
-        $talk->title = $left.' against '.$right;
-        $talk->barter_id = $barter->id;
-        $talk->save();
+
+        $talk = Talk::create([
+            'title' => $left.' againt '.$right,
+            'barter_id' => $barter->id,
+        ]);
+
+    //    dd($left, $right);
+    //    $talk->title = $left.' against '.$right;
+    //    $talk->barter_id = $barter->id;
+    //    $talk->save();
 
         //step 1.bis
         $barter->isClose = true;
